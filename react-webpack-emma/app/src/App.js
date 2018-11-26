@@ -11,7 +11,8 @@ class App extends Component {
         this.state = {
             loggedIn: params.access_token ? true : false,
             nowPlaying: {
-                name: 'not checked',
+                song: 'not checked',
+                name: '',
                 image: ''
             }
         }
@@ -35,8 +36,10 @@ class App extends Component {
             .then((response) => {
                 this.setState({
                     nowPlaying: {
-                        name: response.item.name,
+                        song: response.item.name,
+                        name: response.item.album.artists.name,
                         image: response.item.album.images[0].url
+
                     }
                 })
 
@@ -45,13 +48,13 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1 style={{ marginTop: 20, marginLeft: 825 }}>My React App!</h1>
+                <h1>My React App!</h1>
                 <a href='http://localhost:8888'>
-                    <button style={{ marginTop: 20, marginLeft: 875 }}>Login With Spotify</button>
+                    <button>Login With Spotify</button>
 
                 </a>
-                <div style={{ marginTop: 20, marginLeft: 850 }}>
-                    Now playing: {this.state.nowPlaying.name}
+                <div>
+                    Now playing: {this.state.nowPlaying.song}  {this.state.nowPlaying.name}
                 </div>
                 <div>
                     <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
