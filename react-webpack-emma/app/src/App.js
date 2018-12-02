@@ -49,7 +49,7 @@ class App extends Component {
         return (
             <div>
                 <h1>My React App!</h1>
-                <a href='http://localhost:8888'>
+                <a href='http://localhost:8888/login'>
                     <button>Login With Spotify</button>
 
                 </a>
