@@ -30,18 +30,23 @@ class App extends Component {
         }
         return hashParams;
     }
+
     getNowPlaying() {
         spotifyWebApi.getMyCurrentPlaybackState()
             .then((response) => {
                 this.setState({
                     nowPlaying: {
                         song: response.item.name,
-                        image: response.item.album.images[0].url
+
+                        image: response.item.album.images[0].url,
+                        duration: response.item.duration_ms
+
                     }
                 })
 
             })
     }
+
     render() {
         return (
             <div>
@@ -59,9 +64,14 @@ class App extends Component {
                 <button onClick={() => this.getNowPlaying()}>
                     Check Now playing
                 </button>
+                <script>
+
+                </script>
             </div>
         );
     }
 }
+// var songDuration = this.state.nowPlaying.duration;
 
+// console.log(songDuration);
 export default App;
