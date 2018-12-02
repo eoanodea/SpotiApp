@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://gitlab.mi.hdm-stuttgart.de/mwa/ws18-emma.git"
   },
-  "author": "Eoan, Maxime, Ryan",
+  "author": "Eoan, Maxim, Ryan",
   "license": "ISC",
   "dependencies": {
     "react": "^16.6.3",

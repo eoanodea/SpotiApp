@@ -12,7 +12,6 @@ class App extends Component {
             loggedIn: params.access_token ? true : false,
             nowPlaying: {
                 song: 'not checked',
-                
                 image: ''
             }
         }
@@ -49,7 +48,7 @@ class App extends Component {
 
             })
     }
- 
+
     render() {
         return (
             <div>
