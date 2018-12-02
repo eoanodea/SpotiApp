@@ -33,15 +33,17 @@ class App extends Component {
     }
 
     getNowPlaying() {
+        console.log("getNowPlaying");
         spotifyWebApi.getMyCurrentPlaybackState()
             .then((response) => {
                 this.setState({
                     nowPlaying: {
                         song: response.item.name,
-                        
+                        artist: response.item.artists[0].name,
+                        album: response.item.album.name,
                         image: response.item.album.images[0].url,
-                        duration: response.item.duration_ms
-
+                        duration: response.item.duration_ms,
+                        position: response.progress_ms
                     }
                 })
 
@@ -57,7 +59,9 @@ class App extends Component {
 
                 </a>
                 <div>
-                    Now playing: {this.state.nowPlaying.song} 
+                    <h2>{this.state.nowPlaying.song} </h2>
+                    <h3>{this.state.nowPlaying.album}</h3>
+                    <h3>{this.state.nowPlaying.artist}</h3>
                 </div>
                 <div>
                     <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
@@ -65,14 +69,18 @@ class App extends Component {
                 <button onClick={() => this.getNowPlaying()}>
                     Check Now playing
                 </button>
-                <script>
 
-                </script>
+                <div id="progress">
+                    <div id="bar" style={{width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration)*100 + '%')}}></div>
+                </div>
             </div>
         );
     }
 }
-// var songDuration = this.state.nowPlaying.duration;
 
-// console.log(songDuration);
 export default App;
+
+
+// const progress = (this.state.nowPlaying.position);
+// console.log(progress)
+
