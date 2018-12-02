@@ -12,7 +12,6 @@ class App extends Component {
             loggedIn: params.access_token ? true : false,
             nowPlaying: {
                 song: 'not checked',
-                name: '',
                 image: ''
             }
         }
@@ -37,9 +36,7 @@ class App extends Component {
                 this.setState({
                     nowPlaying: {
                         song: response.item.name,
-                        name: response.item.album.artists.name,
                         image: response.item.album.images[0].url
-
                     }
                 })
 
@@ -54,7 +51,7 @@ class App extends Component {
 
                 </a>
                 <div>
-                    Now playing: {this.state.nowPlaying.song}  {this.state.nowPlaying.name}
+                    Now playing: {this.state.nowPlaying.song}
                 </div>
                 <div>
                     <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
