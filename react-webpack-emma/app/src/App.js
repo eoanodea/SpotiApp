@@ -24,7 +24,7 @@ class App extends Component {
     componentDidMount() {
         setInterval(() => {
             this.getNowPlaying()
-        }, 1000)
+        }, 10000)
     }
 
 
@@ -60,11 +60,11 @@ class App extends Component {
         return (
             <div>
                 <header>
-                <img class="icon" src={SpotifyIcon} />
+                <img className="icon" src={SpotifyIcon} />
                     <nav>
                         <button><a href="http://localhost:8888/login">Login to Spotify</a></button>
                         <button onClick={() => this.getNowPlaying()}>Check now playing</button>
-                        <div class="divider"></div>
+                        <div className="divider"></div>
                     </nav>
                 </header>
                 <div>
