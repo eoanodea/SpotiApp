@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './sass/style.min.css';
+import './scss/style.min.css';
 import Spotify from 'spotify-web-api-js';
 import SpotifyIcon from '../src/images/Spotify.png';
 
