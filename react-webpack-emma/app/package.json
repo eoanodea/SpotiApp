@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot & node ../auth-server/authorization_code/app.js & sass src/scss/style.scss src/scss/style.min.css --watch",
+    "start": "webpack-dev-server --mode development --open --hot & node ../auth-server/authorization_code/app.js & sass --watch src/scss/style.scss:src/scss/style.min.css",
     "build": "webpack --mode production"
   },
   "repository": {
