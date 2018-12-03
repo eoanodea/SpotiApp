@@ -14,3 +14,8 @@ div{
     height: 30px;
     background-color: green;
 }
+
+.icon {
+    width: 150px;
+    height: 150px;
+}

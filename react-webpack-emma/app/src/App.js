@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
+import SpotifyIcon from '../src/images/Spotify.png';
 
 const spotifyWebApi = new Spotify();
 
@@ -52,8 +53,10 @@ class App extends Component {
     render() {
         return (
             <div>
+                <img className="icon" src={SpotifyIcon} />
                 <h1>Spotify App!</h1>
                 <a href='http://localhost:8888/login'>
+
                     <button>Login With Spotify</button>
 
                 </a>
