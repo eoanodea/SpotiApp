@@ -52,11 +52,13 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1>Spotify App!</h1>
-                <a href='http://localhost:8888/login'>
-                    <button>Login With Spotify</button>
-
-                </a>
+                <header>
+                    <nav>
+                        <button href="http://localhost:8888/login">Login to Spotify</button>
+                        <button onClick={() => this.getNowPlaying()}>Check now playing</button>
+                        <div class="divider"></div>
+                    </nav>
+                </header>
                 <div>
                     <h2>{this.state.nowPlaying.song} </h2>
                     <h3>{this.state.nowPlaying.album}</h3>
@@ -65,9 +67,7 @@ class App extends Component {
                 <div>
                     <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
                 </div>
-                <button onClick={() => this.getNowPlaying()}>
-                    Check Now playing
-                </button>
+
 
                 <div id="progress">
                     <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
