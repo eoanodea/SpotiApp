@@ -54,9 +54,9 @@ class App extends Component {
         return (
             <div>
                 <header>
-                <img className="icon" src={SpotifyIcon} />
+                <img class="icon" src={SpotifyIcon} />
                     <nav>
-                        <button href="http://localhost:8888/login">Login to Spotify</button>
+                        <button><a href="http://localhost:8888/login">Login to Spotify</a></button>
                         <button onClick={() => this.getNowPlaying()}>Check now playing</button>
                         <div class="divider"></div>
                     </nav>
