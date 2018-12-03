@@ -52,7 +52,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1>My React App!</h1>
+                <h1>Spotify App!</h1>
                 <a href='http://localhost:8888/login'>
                     <button>Login With Spotify</button>
 
@@ -70,7 +70,7 @@ class App extends Component {
                 </button>
 
                 <div id="progress">
-                    <div id="bar" style={{width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration)*100 + '%')}}></div>
+                    <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
                 </div>
             </div>
         );
