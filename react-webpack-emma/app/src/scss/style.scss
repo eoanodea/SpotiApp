@@ -1,0 +1,33 @@
+$primary-color: #fff;
+    
+@import 'reset/import.scss';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    font-family: 'roboto',serif;    
+}
+div {
+    margin: 15px;
+    text-align: center;
+}
+a { 
+    text-decoration: none;
+    color: black;
+}
+#progress {
+    width: 60%;
+    margin: 0 auto;
+    background-color: grey;
+}
+
+#bar {
+    width: 100%;
+    margin: 50px 0;
+    height: 30px;
+    background-color: green;
+
+}
+.icon {
+    width: 150px;
+    height: 150px;
+}
