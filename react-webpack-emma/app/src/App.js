@@ -21,6 +21,12 @@ class App extends Component {
         }
     }
 
+    componentDidMount() {
+        setInterval(() => {
+            this.getNowPlaying()
+        }, 1000)
+    }
+
 
     getHashParams() {
         var hashParams = {};
