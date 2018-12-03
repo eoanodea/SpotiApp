@@ -14,9 +14,11 @@
   "author": "Eoan, Maxim, Ryan",
   "license": "ISC",
   "dependencies": {
+    "file-loader": "^2.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "spotify-web-api-js": "^1.1.1"
+    "spotify-web-api-js": "^1.1.1",
+    "url-loader": "^1.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

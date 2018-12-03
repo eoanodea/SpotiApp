@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
+import SpotifyIcon from '../src/images/Spotify.png';
 
 const spotifyWebApi = new Spotify();
 
@@ -53,6 +54,7 @@ class App extends Component {
         return (
             <div>
                 <header>
+                <img className="icon" src={SpotifyIcon} />
                     <nav>
                         <button href="http://localhost:8888/login">Login to Spotify</button>
                         <button onClick={() => this.getNowPlaying()}>Check now playing</button>
