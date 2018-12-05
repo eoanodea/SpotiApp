@@ -3,6 +3,8 @@ import './scss/style.min.css';
 import Spotify from 'spotify-web-api-js';
 import SpotifyIcon from '../src/images/Spotify.png';
 
+import { MainNavigation } from './components/MainNavigation_Component';
+
 const spotifyWebApi = new Spotify();
 
 class App extends Component {
@@ -59,14 +61,8 @@ class App extends Component {
     render() {
         return (
             <div>
-                <header>
                 <img className="icon" src={SpotifyIcon} />
-                    <nav>
-                        <button><a href="http://localhost:8888/login">Login to Spotify</a></button>
-                        <button onClick={() => this.getNowPlaying()}>Check now playing</button>
-                        <div className="divider"></div>
-                    </nav>
-                </header>
+                <MainNavigation />
                 <div>
                     <h2>{this.state.nowPlaying.song} </h2>
                     <h3>{this.state.nowPlaying.album}</h3>
