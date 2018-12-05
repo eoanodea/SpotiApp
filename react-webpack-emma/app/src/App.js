@@ -63,6 +63,7 @@ class App extends Component {
             <div>
                 <img className="icon" src={SpotifyIcon} />
                 <MainNavigation />
+
                 <div>
                     <h2>{this.state.nowPlaying.song} </h2>
                     <h3>{this.state.nowPlaying.album}</h3>
