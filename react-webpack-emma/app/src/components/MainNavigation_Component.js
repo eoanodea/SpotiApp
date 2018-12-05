@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './scss/style.min.css';
+
 
 
 export class MainNavigation extends React.Component {
-    render = () => {
+    render() {
         return (
             <div>
                 <header>
