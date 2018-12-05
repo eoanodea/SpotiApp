@@ -3,7 +3,7 @@ import './scss/style.min.css';
 import Spotify from 'spotify-web-api-js';
 import SpotifyIcon from '../src/images/Spotify.png';
 
-import { MainNavigation } from './components/MainNavigation_Component';
+
 
 const spotifyWebApi = new Spotify();
 
@@ -81,7 +81,7 @@ class App extends Component {
         );
     }
 }
-
+import { MainNavigation } from './components/MainNavigation_Component';
 export default App;
 
 
