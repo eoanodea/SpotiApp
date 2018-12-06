@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -26,10 +27,12 @@ module.exports = {
             loader: 'url-loader?limit=100000'
         }]
     },
-
+    devtool: 'cheap-module-source-map',
     plugins: [
+        new ErrorOverlayPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html'
-        })
+        }),
+
     ]
 }
