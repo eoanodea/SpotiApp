@@ -7,10 +7,10 @@ import { HomePage } from '../src/components/HomePage.Component';
 class App extends Component {
     render() {
         return (
+            /* app.js -> HomePage Component */
             <div id="wrapper">
                 <HomePage />
             </div>
-
         );
 
     }
