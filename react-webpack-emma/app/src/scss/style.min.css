@@ -346,7 +346,8 @@ table {
   border-spacing: 0; }
 
 body {
-  font-family: 'roboto',serif; }
+  font-family: 'roboto',serif;
+  background-color: darkslategrey; }
 
 div {
   margin: 15px;
@@ -370,5 +371,8 @@ a {
 .icon {
   width: 150px;
   height: 150px; }
+
+.aggregate {
+  color: #fff; }
 
 /*# sourceMappingURL=style.min.css.map */
