@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Spotify from 'spotify-web-api-js';
 import SpotifyIcon from '../../src/images/Spotify.png';
 import { MainNavigation } from '../../src/components/MainNavigation.Component';
@@ -63,6 +63,7 @@ export class HomePage extends React.Component {
             <div>
                 <img className="icon" src={SpotifyIcon} />
                 <MainNavigation />
+
                 <button onClick={() => this.getNowPlaying()}>Check now playing</button>
                 <div>
                     <h2>{this.state.nowPlaying.song} </h2>

@@ -373,6 +373,13 @@ a {
   height: 150px; }
 
 .aggregate {
-  color: #fff; }
+  color: #fff;
+  width: 40%;
+  display: inline-block;
+  margin-top: 50px; }
+
+.list {
+  color: #fff;
+  width: 25%; }
 
 /*# sourceMappingURL=style.min.css.map */
