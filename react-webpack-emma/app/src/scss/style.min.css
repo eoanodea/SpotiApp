@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -5,7 +6,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 html {
   line-height: 1.15;
   /* 1 */
@@ -331,19 +332,97 @@ template {
   display: none;
 }
 
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 28px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  cursor: pointer;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
 body {
   font-family: "roboto", serif;
   background-color: darkslategrey;
+  color: #ffffff;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  background: black;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  padding: 20px 50px;
+}
+
+.header {
+  margin: 130px 0;
+}
+
+nav {
+  margin: auto 0;
+  display: inline-flex;
+}
+nav a, nav i {
+  margin: auto 0;
+}
+
+.rotate {
+  animation: rotateKeyFrames 0.4s;
+}
+
+.rotate2 {
+  animation: rotateKeyFrames2 0.4s;
+}
+
+@keyframes rotateKeyFrames {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateKeyFrames2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 div {
   margin: 15px;
   text-align: center;
 }
 
+.divider {
+  border: 1px solid #fff;
+  height: 25px;
+  margin: 0 15px;
+}
+
 a {
   text-decoration: none;
-  color: black;
+  color: #fff;
 }
 
 #progress {
@@ -360,8 +439,8 @@ a {
 }
 
 .icon {
-  width: 150px;
-  height: 150px;
+  width: 50px;
+  height: 50px;
 }
 
 .aggregate {

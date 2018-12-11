@@ -1,19 +1,75 @@
-$primary-color: #fff;
-    
-@import 'reset/import.scss';
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import 'reset/import.scss';
+@import 'fonts/fonts.scss';
+
 
 body {
     font-family: 'roboto',serif;    
     background-color: darkslategrey;
+    color: #ffffff;
 }
+header {
+    display: flex;
+    justify-content: space-between;
+    background: black;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 20px 50px;
+}
+.header {
+    margin: 130px 0;
+}
+nav {
+    margin: auto 0;
+    display: inline-flex;
+
+    & a, i {
+    margin: auto 0;
+    }
+}
+.rotate {
+    animation: rotateKeyFrames .4s;
+}
+.rotate2 {
+    animation: rotateKeyFrames2 .4s;
+}
+@keyframes rotateKeyFrames {
+    from {
+     transform: rotate(0deg);
+    }
+   
+    to {
+     transform: rotate(360deg);
+    }
+   }
+   @keyframes rotateKeyFrames2 {
+    from {
+     transform: rotate(0deg);
+    }
+   
+    to {
+     transform: rotate(360deg);
+    }
+   }
+// .rotate.selected{
+//     -moz-transform:rotate(360deg);
+//     -webkit-transform:rotate(360deg);
+//     transform:rotate(360deg);
+// }
 div {
     margin: 15px;
     text-align: center;
 }
+.divider {
+    border: 1px solid #fff;
+    height: 25px;
+    margin: 0 15px;
+}
 a { 
     text-decoration: none;
-    color: black;
+    color: #fff;
 }
 #progress {
     width: 60%;
@@ -29,8 +85,8 @@ a {
 
 }
 .icon {
-    width: 150px;
-    height: 150px;
+    width: 50px;
+    height: 50px;
 }
 .aggregate{
     color: #fff; 

@@ -1,6 +1,5 @@
 import React from 'react';
 import Spotify from 'spotify-web-api-js';
-import SpotifyIcon from '../../src/images/Spotify.png';
 import { MainNavigation } from '../../src/components/MainNavigation.Component';
 import { Link } from 'react-router-dom';
 
@@ -14,7 +13,7 @@ export class HomePage extends React.Component {
         this.state = {
             loggedIn: params.access_token ? true : false,
             nowPlaying: {
-                song: 'not checked',
+                song: '',
                 image: ''
             }
         }
@@ -24,13 +23,6 @@ export class HomePage extends React.Component {
 
         this.getNowPlaying = this.getNowPlaying.bind(this);
     }
-
-    componentDidMount() {
-        setInterval(() => {
-            this.getNowPlaying()
-        }, 10000)
-    }
-
 
     getHashParams() {
         var hashParams = {};
@@ -42,28 +34,56 @@ export class HomePage extends React.Component {
         return hashParams;
     }
 
-    getNowPlaying() {
-        console.log("getNowPlaying");
-        spotifyWebApi.getMyCurrentPlaybackState()
-            .then((response) => {
-                this.setState({
-                    nowPlaying: {
-                        song: response.item.name,
-                        artist: response.item.artists[0].name,
-                        album: response.item.album.name,
-                        image: response.item.album.images[0].url,
-                        duration: response.item.duration_ms,
-                        position: response.progress_ms
-                    }
-                })
 
+    getNowPlaying() {
+        let loggedIn = false;
+        if(window.location.href.includes('#access_token')) {
+            loggedIn = true;
+            var refreshIcon = document.getElementById('refreshIcon');
+            if(refreshIcon.className==="material-icons rotate") {
+                refreshIcon.className="material-icons rotate2";
+            } else {
+                refreshIcon.className="material-icons rotate";
+            }
+
+            spotifyWebApi.getMyCurrentPlaybackState()
+                .then((response) => {
+                    this.setState({
+                        nowPlaying: {
+                            song: response.item.name,
+                            artist: response.item.artists[0].name,
+                            album: response.item.album.name,
+                            image: response.item.album.images[0].url,
+                            duration: response.item.duration_ms,
+                            position: response.progress_ms
+                        }
+                    })
+
+                })
+        } else {
+            loggedIn = false;
+            console.log(loggedIn)
+            this.setState({
+                nowPlaying: {
+                    song: 'Please Log In',
+                    image: ''
+                }
             })
+
+        }
     }
+
+    componentDidMount() {
+        if(this.getNowPlaying.loggedIn = true)setInterval(() => {
+            this.getNowPlaying()
+        }, 10000)
+    }
+
 
     render() {
         return (
             <div>
-                <img className="icon" src={SpotifyIcon} />
+                
                 <MainNavigation myFunction={this.getNowPlaying}/>
 
                 
@@ -84,9 +104,4 @@ export class HomePage extends React.Component {
         );
     }
 }
-
-
-
-// const progress = (this.state.nowPlaying.position);
-// console.log(progress)
 
