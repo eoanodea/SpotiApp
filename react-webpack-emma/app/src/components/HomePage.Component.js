@@ -21,6 +21,8 @@ export class HomePage extends React.Component {
         if (params.access_token) {
             spotifyWebApi.setAccessToken(params.access_token)
         }
+
+        this.getNowPlaying = this.getNowPlaying.bind(this);
     }
 
     componentDidMount() {
@@ -62,9 +64,9 @@ export class HomePage extends React.Component {
         return (
             <div>
                 <img className="icon" src={SpotifyIcon} />
-                <MainNavigation />
+                <MainNavigation myFunction={this.getNowPlaying}/>
 
-                <button onClick={() => this.getNowPlaying()}>Check now playing</button>
+                
                 <div>
                     <h2>{this.state.nowPlaying.song} </h2>
                     <h3>{this.state.nowPlaying.album}</h3>
