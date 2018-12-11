@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Spotify from 'spotify-web-api-js';
 import SpotifyIcon from '../../src/images/Spotify.png';
 import { MainNavigation } from '../../src/components/MainNavigation.Component';
+import { Link } from 'react-router-dom';
+
 
 const spotifyWebApi = new Spotify();
 
@@ -61,6 +63,7 @@ export class HomePage extends React.Component {
             <div>
                 <img className="icon" src={SpotifyIcon} />
                 <MainNavigation />
+
                 <button onClick={() => this.getNowPlaying()}>Check now playing</button>
                 <div>
                     <h2>{this.state.nowPlaying.song} </h2>
@@ -71,10 +74,10 @@ export class HomePage extends React.Component {
                     <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
                 </div>
 
-
                 <div id="progress">
                     <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
                 </div>
+                <Link to="/playlist"><button>My playlist</button></Link>
             </div>
         );
     }

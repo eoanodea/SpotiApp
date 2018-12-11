@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 export class MainNavigation extends React.Component {
     render() {
         return (

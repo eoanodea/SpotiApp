@@ -5,6 +5,7 @@ $primary-color: #fff;
 
 body {
     font-family: 'roboto',serif;    
+    background-color: darkslategrey;
 }
 div {
     margin: 15px;
@@ -30,4 +31,14 @@ a {
 .icon {
     width: 150px;
     height: 150px;
+}
+.aggregate{
+    color: #fff; 
+    width: 40%;
+    display: inline-block;
+    margin-top: 50px;
+}
+.list{
+    color: #fff;
+    width: 25%;
 }

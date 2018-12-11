@@ -386,8 +386,13 @@ table {
 }
 
 body {
+<<<<<<< HEAD
   font-family: "roboto", serif;
 }
+=======
+  font-family: 'roboto',serif;
+  background-color: darkslategrey; }
+>>>>>>> 58d40ac84130ed1dd0231f627c4a3d22d52733ee
 
 div {
   margin: 15px;
@@ -416,5 +421,15 @@ a {
   width: 150px;
   height: 150px;
 }
+
+.aggregate {
+  color: #fff;
+  width: 40%;
+  display: inline-block;
+  margin-top: 50px; }
+
+.list {
+  color: #fff;
+  width: 25%; }
 
 /*# sourceMappingURL=style.min.css.map */
