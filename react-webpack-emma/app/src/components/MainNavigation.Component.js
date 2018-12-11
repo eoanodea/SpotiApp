@@ -49,8 +49,7 @@ export class MainNavigation extends React.Component {
         if(window.location.href.includes('#access_token')) {
             profile = true;
             return (
-                <span>
-                </span>
+                <a href="http://localhost:8888/">Log Out</a>
                 //this.state.nowPlaying.song
             );
         } else {
@@ -66,13 +65,13 @@ export class MainNavigation extends React.Component {
             <div className="header">
                 <header>
                     <img className="icon" src={SpotifyIcon} />
-                    <this.profile />
+                    
                     <nav>
                         <i id="refreshIcon" className="material-icons" href="#" onClick={this.props.myFunction}>refresh</i>
                         <div className="divider"></div>
                         
 
-                        <a href="http://localhost:8888/login">Login</a>
+                        <this.profile />
                         
                     </nav>
                 </header>
