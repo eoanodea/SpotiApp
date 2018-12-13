@@ -31,13 +31,13 @@ export class MainNavigation extends React.Component {
         }
         return hashParams;
     }
-    
-    
+
+
     profile() {
         spotifyWebApi.getMyCurrentPlaybackState().then((response) => {
             this.setState({
                 nowPlaying: {
-                    song: response.item.name,
+                    // song: response.item.name
 
                     //user profile picture to be added here
                 }
@@ -46,7 +46,7 @@ export class MainNavigation extends React.Component {
         })
 
         let profile = false;
-        if(window.location.href.includes('#access_token')) {
+        if (window.location.href.includes('#access_token')) {
             profile = true;
             return (
                 <a href="http://localhost:8888/">Log Out</a>
@@ -65,14 +65,14 @@ export class MainNavigation extends React.Component {
             <div className="header">
                 <header>
                     <img className="icon" src={SpotifyIcon} />
-                    
+
                     <nav>
                         <i id="refreshIcon" className="material-icons" href="#" onClick={this.props.myFunction}>refresh</i>
                         <div className="divider"></div>
-                        
+
 
                         <this.profile />
-                        
+
                     </nav>
                 </header>
             </div>
