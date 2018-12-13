@@ -34,16 +34,16 @@ export class MainNavigation extends React.Component {
 
 
     profile() {
-        spotifyWebApi.getMyCurrentPlaybackState().then((response) => {
-            this.setState({
-                nowPlaying: {
-                    // song: response.item.name
+        // spotifyWebApi.getMyCurrentPlaybackState().then((response) => {
+        //     this.setState({
+        //         nowPlaying: {
+        //             song: response.item.name
 
-                    //user profile picture to be added here
-                }
-            })
+        //             //user profile picture to be added here
+        //         }
+        //     })
 
-        })
+        // })
 
         let profile = false;
         if (window.location.href.includes('#access_token')) {
