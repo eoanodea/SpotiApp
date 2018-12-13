@@ -64,9 +64,9 @@ export class HomePage extends React.Component {
         return (
             <div>
                 <img className="icon" src={SpotifyIcon} />
-                <MainNavigation myFunction={this.getNowPlaying}/>
+                <MainNavigation myFunction={this.getNowPlaying} />
 
-                
+
                 <div>
                     <h2>{this.state.nowPlaying.song} </h2>
                     <h3>{this.state.nowPlaying.album}</h3>
