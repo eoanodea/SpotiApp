@@ -49,7 +49,7 @@ export class MainNavigation extends React.Component {
         if(window.location.href.includes('#access_token')) {
             profile = true;
             return (
-                <a href="http://localhost:8888/">Log Out</a>
+                <a href="http://localhost:8080/">Log Out</a>
                 //this.state.nowPlaying.song
             );
         } else {
