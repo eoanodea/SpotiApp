@@ -37,13 +37,13 @@ export class HomePage extends React.Component {
 
     getNowPlaying() {
         let loggedIn = false;
-        if(window.location.href.includes('#access_token')) {
+        if (window.location.href.includes('#access_token')) {
             loggedIn = true;
             var refreshIcon = document.getElementById('refreshIcon');
-            if(refreshIcon.className==="material-icons rotate") {
-                refreshIcon.className="material-icons rotate2";
+            if (refreshIcon.className === "material-icons rotate") {
+                refreshIcon.className = "material-icons rotate2";
             } else {
-                refreshIcon.className="material-icons rotate";
+                refreshIcon.className = "material-icons rotate";
             }
 
             spotifyWebApi.getMyCurrentPlaybackState()
@@ -74,7 +74,7 @@ export class HomePage extends React.Component {
     }
 
     componentDidMount() {
-        if(this.getNowPlaying.loggedIn = true)setInterval(() => {
+        if (this.getNowPlaying.loggedIn = true) setInterval(() => {
             this.getNowPlaying()
         }, 10000)
     }
@@ -83,14 +83,9 @@ export class HomePage extends React.Component {
     render() {
         return (
             <div>
-<<<<<<< HEAD
-                
-                <MainNavigation myFunction={this.getNowPlaying}/>
-=======
                 <img className="icon" src={SpotifyIcon} />
                 <MainNavigation myFunction={this.getNowPlaying} />
 
->>>>>>> master
 
                 <div>
                     <h2>{this.state.nowPlaying.song} </h2>
