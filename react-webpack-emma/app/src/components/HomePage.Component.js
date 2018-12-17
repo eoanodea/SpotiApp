@@ -1,6 +1,7 @@
 import React from 'react';
 import Spotify from 'spotify-web-api-js';
 import { MainNavigation } from '../../src/components/MainNavigation.Component';
+import { SpotifyIcon } from '../images/Spotify.png';
 import { Link } from 'react-router-dom';
 
 
@@ -99,7 +100,7 @@ export class HomePage extends React.Component {
                 <div id="progress">
                     <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
                 </div>
-                
+
             </div>
         );
     }
