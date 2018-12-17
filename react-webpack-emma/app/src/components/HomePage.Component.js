@@ -99,7 +99,7 @@ export class HomePage extends React.Component {
                 <div id="progress">
                     <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
                 </div>
-                <Link to="/playlist"><button>My playlist</button></Link>
+                
             </div>
         );
     }
