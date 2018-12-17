@@ -34,11 +34,12 @@ export class MainNavigation extends React.Component {
     
     
     profile() {
+        // console.log(spotifyWebApi.getAccessToken(params.access_token))
         spotifyWebApi.getUser().then((response) => {
             this.setState({
                 //  display_name
 
-                    //user profile picture to be added here
+                //user profile picture to be added here
                 
             })
 
@@ -64,15 +65,14 @@ export class MainNavigation extends React.Component {
             <div className="header">
                 <header>
                     <img className="icon" src={SpotifyIcon} />
-                    
-                    <nav>
-                        <i id="refreshIcon" className="material-icons" href="#" onClick={this.props.myFunction}>refresh</i>
-                        <div className="divider"></div>
-                        
 
-                        <this.profile />
-                        
-                    </nav>
+                        <nav>
+                            {/* <Link to="/playlist"><button>My playlist</button></Link> */}
+                            <i id="refreshIcon" className="material-icons" href="#" onClick={this.props.myFunction}>refresh</i>
+                            <div className="divider"></div>
+                            <this.profile />
+                        </nav>
+
                 </header>
             </div>
         );
