@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './scss/style.min.css';
 import { HomePage } from '../src/components/HomePage.Component';
 import { Playlist } from '../src/components/Playlist.Component';
-import { Profile } from '../src/components/Playlist.Component';
+import { Profile } from '../src/components/Profile.Component';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 class App extends Component {
