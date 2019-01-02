@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { AppNavbar } from './AppNavbar.Component';
 
 export class Profile extends React.Component {
     render() {
         return (
-            <div>
-                <h1>Hello World!</h1>
+            <div className="App">
+
+                <AppNavbar />
             </div>
         )
     }

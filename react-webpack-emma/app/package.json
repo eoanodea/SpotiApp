@@ -15,13 +15,17 @@
   "author": "Eoan, Maxim, Ryan",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "^4.2.1",
     "file-loader": "^2.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.3.1",
+    "react-transition-group": "^2.5.2",
+    "reactstrap": "^7.0.2",
     "spotify-web-api-js": "^1.1.1",
-    "url-loader": "^1.1.2"
+    "url-loader": "^1.1.2",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
