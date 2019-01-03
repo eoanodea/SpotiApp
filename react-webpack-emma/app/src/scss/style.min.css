@@ -362,10 +362,6 @@ nav {
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
-div {
-  margin: 15px;
-  text-align: center; }
-
 .divider {
   border: 1px solid #fff;
   height: 25px;
@@ -399,5 +395,22 @@ a {
 .list {
   color: #fff;
   width: 25%; }
+
+.remove-btn {
+  margin-right: 0.5rem; }
+
+.fade-enter {
+  opacity: 0.01; }
+
+.fade-exit {
+  opacity: 1; }
+
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 1000ms ease-in; }
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in; }
 
 /*# sourceMappingURL=style.min.css.map */
