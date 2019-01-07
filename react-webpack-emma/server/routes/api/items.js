@@ -25,6 +25,15 @@ router.post('/', (req, res) => {
         .then(item => res.json(item));
 });
 
+//get one song
+router.get('/:id', (req, res) => {
+    Item.findById(req.params.id)
+        .then(item => res.json({ item }))
+        .catch(err => res.status(404).json({ success: false }));
+})
+
+
+
 
 // @route delte api/items/:id
 // delete a song
