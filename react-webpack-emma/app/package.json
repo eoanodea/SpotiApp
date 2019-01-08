@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot  & sass --watch src/scss/style.scss:src/scss/style.min.css",
+    "start": "webpack-dev-server --mode development --open --hot  & node ../auth-server/authorization_code/app.js & sass --watch src/scss/style.scss:src/scss/style.min.css",
     "build": "webpack --mode production",
     "webpack": "webpack --config config/webpack.js"
   },
@@ -26,7 +26,8 @@
     "reactstrap": "^7.0.2",
     "spotify-web-api-js": "^1.1.1",
     "url-loader": "^1.1.2",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -47,6 +48,6 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.14"
   }
 }
