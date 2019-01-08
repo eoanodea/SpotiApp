@@ -172,7 +172,7 @@ export class Login extends React.Component {
           token: json.token
         }); 
         console.log("token received");
-        window.location.replace("http://localhost:8081/profile/");
+        window.location.replace("http://localhost:8080/profile/");
       } else {
         this.setState({
           signInError: json.message,
