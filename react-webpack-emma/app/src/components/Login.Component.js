@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import { Link } from 'react-router-dom';
+
 
 import {
   getFromStorage,
@@ -170,6 +172,7 @@ export class Login extends React.Component {
           token: json.token
         }); 
         console.log("token received");
+        window.location.replace("http://localhost:8081/profile/");
       } else {
         this.setState({
           signInError: json.message,
