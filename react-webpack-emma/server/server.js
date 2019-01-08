@@ -1,28 +1,38 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+var express = require("express");
+var path = require("path");
+var bodyParser = require("body-parser");
 
-const items = require('./routes/api/items');
+var index = require("./routes/index");
+var tasks = require("./routes/tasks");
 
+const cors = require("cors");
 
-const app = express();
+var port = 5000;
 
-//bodyparser Middleware
+var app = express();
+
+app.use(
+    cors({
+        origin: "http://localhost:8080",
+        credentials: true
+    })
+);
+
+//View Engine
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+app.engine("html", require("ejs").renderFile);
+
+// Set Static Folder
+app.use(express.static(path.join(__dirname, "client")));
+
+// Body Parser MW
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-//DB Config
-const db = require('./config/keys').mongoURI;
+app.use("/", index);
+app.use("/api", tasks);
 
-//Connect to MongoDB
-mongoose
-    .connect(db)
-    .then(() => console.log('MongoDb connected...'))
-    .catch(err => console.log(err));
-
-//Use Routes
-app.use('/api/items', items);
-
-//listen on port environment or 5000
-const port = process.env.PORT || 5000;
-
-app.listen(port, () => console.log(`Server started on port  ${port} `));
+app.listen(port, function () {
+    console.log("Server started on port " + port);
+});

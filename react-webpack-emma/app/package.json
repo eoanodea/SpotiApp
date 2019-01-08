@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot & node ../auth-server/authorization_code/app.js & sass --watch src/scss/style.scss:src/scss/style.min.css",
+    "start": "webpack-dev-server --mode development --open --hot  & sass --watch src/scss/style.scss:src/scss/style.min.css",
     "build": "webpack --mode production",
     "webpack": "webpack --config config/webpack.js"
   },
@@ -15,6 +15,7 @@
   "author": "Eoan, Maxim, Ryan",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
     "file-loader": "^2.0.0",
     "react": "^16.6.3",
