@@ -64,15 +64,16 @@ export class MainNavigation extends React.Component {
         return (
             <div className="header">
                 <header>
-                    <img className="icon" src={SpotifyIcon} />
+                    <div>
+                        <img className="icon" src={SpotifyIcon} />
 
-                    <nav>
-                        {/* <Link to="/playlist"><button>My playlist</button></Link> */}
-                        <i id="refreshIcon" className="material-icons" href="#" onClick={this.props.myFunction}>refresh</i>
-                        <div className="divider"></div>
-                        <this.profile />
-                    </nav>
-
+                        <nav>
+                            
+                            <i id="refreshIcon" className="material-icons" href="#" onClick={this.props.myFunction}>refresh</i>
+                            <div className="divider"></div>
+                            <this.profile />
+                        </nav>
+                    </div>
                 </header>
             </div>
         );
