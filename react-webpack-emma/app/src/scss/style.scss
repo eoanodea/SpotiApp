@@ -21,6 +21,9 @@ header div {
 .header {
     margin: 130px 0;
 }
+.material-icons {
+    color: white;
+}
 nav {
     margin: auto 0;
     display: inline-flex;
@@ -53,12 +56,6 @@ nav {
      transform: rotate(360deg);
     }
    }
-// .rotate.selected{
-//     -moz-transform:rotate(360deg);
-//     -webkit-transform:rotate(360deg);
-//     transform:rotate(360deg);
-// }
-
 .divider {
     border: 1px solid #fff;
     height: 25px;
@@ -73,7 +70,6 @@ a {
     margin: 0 auto;
     background-color: grey;
 }
-
 #bar {
     width: 100%;
     margin: 50px 0;
@@ -95,20 +91,15 @@ a {
     color: #fff;
     width: 25%;
 }
-
-
 .remove-btn{
     margin-right: 0.5rem;
 }
-
 .fade-enter{
     opacity: 0.01;
 }
-
 .fade-exit{
     opacity: 1;
 }  
-
 .fade-exit-active{
     opacity: 0.01;
     transition: opacity 1000ms ease-in;

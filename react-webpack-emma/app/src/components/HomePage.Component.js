@@ -1,8 +1,6 @@
 import React from 'react';
 import Spotify from 'spotify-web-api-js';
-import { MainNavigation } from '../../src/components/MainNavigation.Component';
-import { SpotifyIcon } from '../images/Spotify.png';
-import { Link } from 'react-router-dom';
+import { AppNavbar } from './AppNavbar.Component';
 
 
 const spotifyWebApi = new Spotify();
@@ -34,9 +32,8 @@ export class HomePage extends React.Component {
         }
         return hashParams;
     }
-
-
     getNowPlaying() {
+
         let loggedIn = false;
         if (window.location.href.includes('#access_token')) {
             loggedIn = true;
@@ -84,23 +81,23 @@ export class HomePage extends React.Component {
     render() {
         return (
             <div>
-                <img className="icon" src={SpotifyIcon} />
-                <MainNavigation myFunction={this.getNowPlaying} />
+                {/* <MainNavigation myFunction={this.getNowPlaying} /> */}
+                < AppNavbar myFunction={this.getNowPlaying}/>
+                <div className="container">
 
+                    <div>
+                        <h2>{this.state.nowPlaying.song} </h2>
+                        <h3>{this.state.nowPlaying.album}</h3>
+                        <h3>{this.state.nowPlaying.artist}</h3>
+                    </div>
+                    <div>
+                        <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
+                    </div>
 
-                <div>
-                    <h2>{this.state.nowPlaying.song} </h2>
-                    <h3>{this.state.nowPlaying.album}</h3>
-                    <h3>{this.state.nowPlaying.artist}</h3>
+                    <div id="progress">
+                        <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
+                    </div>
                 </div>
-                <div>
-                    <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
-                </div>
-
-                <div id="progress">
-                    <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
-                </div>
-
             </div>
         );
     }

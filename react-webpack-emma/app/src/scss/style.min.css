@@ -377,6 +377,10 @@ header div {
   margin: 130px 0;
 }
 
+.material-icons {
+  color: white;
+}
+
 nav {
   margin: auto 0;
   display: inline-flex;
