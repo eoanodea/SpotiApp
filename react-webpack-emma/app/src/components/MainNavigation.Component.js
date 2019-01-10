@@ -1,6 +1,7 @@
 import React from 'react';
 import Spotify from 'spotify-web-api-js';
 import SpotifyIcon from '../images/Spotify.png';
+import { Link } from 'react-router-dom';
 
 const spotifyWebApi = new Spotify();
 

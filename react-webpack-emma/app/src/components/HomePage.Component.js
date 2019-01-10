@@ -5,17 +5,24 @@ import { AppNavbar } from './AppNavbar.Component';
 
 const spotifyWebApi = new Spotify();
 
+
 export class HomePage extends React.Component {
-    constructor() {
+    constructor(){
         super();
         const params = this.getHashParams();
+        const token = params.access_token;
+        if (token) {
+            spotifyWebApi.setAccessToken(token);
+        }
         this.state = {
-            loggedIn: params.access_token ? true : false,
-            nowPlaying: {
-                song: '',
-                image: ''
+          loggedIn: token ? true : false,
+          nowPlaying: { 
+              name: 'Not Checked', 
+              albumArt: '' 
             }
         }
+      
+    
         if (params.access_token) {
             spotifyWebApi.setAccessToken(params.access_token)
         }
@@ -43,22 +50,21 @@ export class HomePage extends React.Component {
             } else {
                 refreshIcon.className = "material-icons rotate";
             }
-
             spotifyWebApi.getMyCurrentPlaybackState()
-                .then((response) => {
+                    .then((response) => {
                     this.setState({
-                        nowPlaying: {
-                            song: response.item.name,
-                            artist: response.item.artists[0].name,
-                            album: response.item.album.name,
-                            image: response.item.album.images[0].url,
-                            duration: response.item.duration_ms,
-                            position: response.progress_ms
+                        nowPlaying: { 
+                        song: response.item.name,
+                        artist: response.item.artists[0].name,
+                        album: response.item.album.name,
+                        image: response.item.album.images[0].url,
+                        duration: response.item.duration_ms,
+                        position: response.progress_ms
                         }
+                    });
                     })
-
-                })
-        } else {
+                }
+         else {
             loggedIn = false;
             console.log(loggedIn)
             this.setState({
@@ -70,7 +76,8 @@ export class HomePage extends React.Component {
 
         }
     }
-
+    
+            
     componentDidMount() {
         if (this.getNowPlaying.loggedIn = true) setInterval(() => {
             this.getNowPlaying()
@@ -86,7 +93,7 @@ export class HomePage extends React.Component {
                 <div className="container">
 
                     <div>
-                        <h2>{this.state.nowPlaying.song} </h2>
+                        <h2>{this.state.nowPlaying.name} </h2>
                         <h3>{this.state.nowPlaying.album}</h3>
                         <h3>{this.state.nowPlaying.artist}</h3>
                     </div>
