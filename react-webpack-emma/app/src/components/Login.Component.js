@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import { Link } from 'react-router-dom';
-
+import {
+    Button,
+    Form,
+    FormGroup,
+    Input,
+    TabContent, 
+    TabPane,
+    Nav,
+    NavItem,
+    NavLink,
+    Alert
+} from 'reactstrap';
+import classnames from 'classnames';
 
 import {
   getFromStorage,
@@ -23,7 +35,8 @@ export class Login extends React.Component {
       signUpFirstName: '',
       signUpLastName: '',
       signUpEmail: '',
-      signUpPassword: ''
+      signUpPassword: '',
+      loggedIn: false
     };
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
@@ -35,7 +48,16 @@ export class Login extends React.Component {
     this.onSignIn = this.onSignIn.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
     this.logout = this.logout.bind(this);
+
+    this.toggle = this.toggle.bind(this);
+    this.isLoggedIn = this.isLoggedIn.bind(this);
+
+    this.state = {
+      activeTab: '1'
+    };
+
   }
+  
   componentDidMount() {
     const obj = getFromStorage('the_main_app');
     if(obj && obj.token) {
@@ -61,6 +83,7 @@ export class Login extends React.Component {
       });
     }
   }
+
 
   onTextboxChangeSignInEmail(event) {
     this.setState({
@@ -100,7 +123,7 @@ export class Login extends React.Component {
       signUpEmail,
       signUpPassword
     } = this.state;
-
+    
     this.setState({
       isLoading: true
     });
@@ -120,6 +143,7 @@ export class Login extends React.Component {
       .then(res => res.json())
       .then(json => {
         console.log('json', json);
+        
         if (json.success) {
           this.setState({
             signUpError: json.message,
@@ -127,16 +151,20 @@ export class Login extends React.Component {
             signUpEmail: '',
             signUpPassword: '',
             signUpFirstName: '',
-            signUpLastName: ''
+            signUpLastName: '',
+            alertMessage: "success"
           }); 
+        
+          this.toggle('1');
         } else {
           this.setState({
             signUpError: json.message,
             isLoading: false,
+            alertMessage: "danger"
           });
+
         }
       });
-
   }
   onSignIn() {
   //Grab State
@@ -180,7 +208,8 @@ export class Login extends React.Component {
         });
       }
     });
-
+    // Close modal
+    this.toggle();
   }
   logout() {
     this.setState({
@@ -212,6 +241,37 @@ export class Login extends React.Component {
     
   }
 
+  isLoggedIn = (props) => {
+    if(!token) {
+      this.setState({
+        loggedIn: true
+
+      })
+      return(
+        <NavLink className="navLogin" onClick={this.toggle}>Login</NavLink>
+      );
+    } else {
+      this.setState({
+        loggedIn: false
+      })
+      return(
+        <NavLink className="navLogin" onClick={this.logout}>Logout</NavLink>
+      );
+    }
+
+    const loggedIn = this.props.loggedIn;
+
+  }
+  
+
+  toggle(tab) {
+    if (this.state.activeTab !== tab) {
+        this.setState({
+        activeTab: tab
+        });
+    }
+}
+
   render() {
     const {
       isLoading,
@@ -223,81 +283,146 @@ export class Login extends React.Component {
       signUpLastName,
       signUpEmail,
       signUpPassword,
-      signUpError
+      signUpError,
+      alertMessage,
+      loggedIn
     } = this.state;
+    
+    return(
+      <FormModal loggedIn={this.props.alertMessage} />
+    );
 
     if (isLoading) {
       return(<div><p>Loading...</p></div>);
-    } 
-    if(!token) {
-      return (
-        <div>
-          <div>
-            {
-              (signInError) ? (
-                <p>{signInError}</p>
-              ) : (null)
-            }
-              <p>Sign In</p>
-              <input 
-                type="email" 
-                placeholder="Email" 
-                value={signInEmail}
-                onChange={this.onTextboxChangeSignInEmail}
-                
-              /><br />
-              <input 
-                type="password" 
-                placeholder="Password" 
-                value={signInPassword}
-                onChange={this.onTextboxChangeSignInPassword}
-                
-              /><br />
-              <button onClick={this.onSignIn}>Sign In</button>
-          </div>
-          <br />
-          <div>
-            {
-              (signUpError) ? (
-                <p>{signUpError}</p>
-              ) : (null)
-            }
-              <p>Sign Up</p>
-              <input 
-                type="text" 
-                placeholder="First Name" 
-                value={signUpFirstName}
-                onChange={this.onTextboxChangeSignUpFirstName}
-              /><br />
-              <input 
-                type="text" 
-                placeholder="Last Name" 
-                value={signUpLastName}
-                onChange={this.onTextboxChangeSignUpLastName}
-              /><br />
-              <input 
-                type="email" 
-                placeholder="Email" 
-                value={signUpEmail}
-                onChange={this.onTextboxChangeSignUpEmail}
-              /><br />
-              <input 
-                type="password" 
-                placeholder="Password" 
-                value={signUpPassword}
-                onChange={this.onTextboxChangeSignUpPassword}
-              /><br />
-              <button onClick={this.onSignUp}>Sign Up</button>
-          </div>
-        </div>
-      );
+      
     }
+    if (!isLoading || token) {
     return (
       <div>
-        <p>Account</p>
-        <button onClick={this.logout}>Logout</button>
+        
+        <Nav tabs>
+            <NavItem>
+                <NavLink
+                className={
+                    classnames({ 
+                    active: this.state.activeTab === '1'
+                    })
+                }
+                onClick = { () => {
+                    this.toggle('1');
+                }
+                }
+                >Sign In
+            </NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink
+                    className={
+                    classnames({ 
+                    active: this.state.activeTab === '2'
+                    })
+                    }
+                    onClick = { () => {
+                    this.toggle('2');
+                    }
+                    }
+                    >Sign Up
+                </NavLink>
+            </NavItem>
+        </Nav>
+        <TabContent activeTab={this.state.activeTab}>
+        <TabPane active="true" tabId="1">
+          <Form onSubmit={this.onSignIn}>
+              <FormGroup>
+                  <Input 
+                    type="email" 
+                    placeholder="Email Address" 
+                    value={signInEmail}
+                    onChange={this.onTextboxChangeSignInEmail}
+                  />
+                  <Input 
+                    type="password" 
+                    placeholder="Password" 
+                    value={signInPassword}
+                    onChange={this.onTextboxChangeSignInPassword}
+                  />
+                  <Button
+                      color="dark"
+                      style={{ marginTop: '2rem' }}
+                      block
+                  >Sign In</Button>
+              </FormGroup>
+          </Form>
+          {
+            (signUpError) ? (
+              <Alert id="alert" color={alertMessage.toString()} style={{ marginTop: '10px' }}>
+              {signUpError}
+            </Alert>
+            ) : (null)
+          }
+          {
+          (signInError) ? (
+            <Alert id="alert" style={{ marginTop: '10px' }}>
+              {signInError}
+            </Alert>
+          ) : (null)
+          }
+        </TabPane>
+        <TabPane tabId="2">
+          <Form onSubmit={this.onSignUp}>
+              <FormGroup>
+                  <Input 
+                    type="text" 
+                    placeholder="First Name" 
+                    value={signUpFirstName}
+                    onChange={this.onTextboxChangeSignUpFirstName}
+                  />
+                  <Input 
+                    type="text" 
+                    placeholder="Last Name" 
+                    value={signUpLastName}
+                    onChange={this.onTextboxChangeSignUpLastName}
+                  />
+                  <Input 
+                    type="email" 
+                    placeholder="Email Address" 
+                    value={signUpEmail}
+                    onChange={this.onTextboxChangeSignUpEmail}
+                  />
+                  <Input 
+                    type="password" 
+                    placeholder="Password" 
+                    value={signUpPassword}
+                    onChange={this.onTextboxChangeSignUpPassword}
+                  />
+                  <Button
+                      color="dark"
+                      style={{ marginTop: '2rem' }}
+                      block
+                  >Sign Up</Button>
+              </FormGroup>
+          </Form>
+          {
+            (signUpError) ? (
+              <Alert id="alert" color={alertMessage.toString()} style={{ marginTop: '10px' }}>
+              {signUpError}
+            </Alert>
+            ) : (null)
+          }
+          </TabPane>
+        </TabContent>
+      </div>
+      );
+    }
+      
+    return (
+      <div>
+        <p>Please wait...</p>
+        {/* <button onClick={this.logout}>Logout</button> */}
       </div>
     );
   }
 }
+  
+
 

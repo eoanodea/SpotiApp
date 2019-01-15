@@ -9,7 +9,9 @@ import {
     NavLink,
     Container
 } from 'reactstrap';
+import { Login } from './Login.Component';
 import Spotify from 'spotify-web-api-js';
+import { FormModal } from './FormModal.Component';
 
 const spotifyWebApi = new Spotify();
 
@@ -65,13 +67,15 @@ export class AppNavbar extends React.Component {
         if (window.location.href.includes('#access_token')) {
             profile = true;
             return (
-                <NavLink href="http://localhost:8080/">Log Out</NavLink>
+                <NavLink onClick={this.logout}>Log Out</NavLink>
                 //this.state.nowPlaying.song
             );
         } else {
             profile = false;
             return (
-                <NavLink href="http://localhost:8888/login">Login</NavLink>
+                <div>
+                    <FormModal />
+                </div>
             );
         }
     }
@@ -84,19 +88,19 @@ export class AppNavbar extends React.Component {
                         <NavbarBrand href="/" >
                             My Song List
                     </NavbarBrand>
-                    <Nav className="d-block d-sm-none">
-                        <NavItem>
+                    <Nav>
+                        <NavItem className="d-block d-sm-none">
                             <NavLink>
-                                <i id="refreshIcon" className="material-icons" href="#" onClick={this.props.myFunction}>refresh</i>
+                                <i id="refreshIcon" className="material-icons rotate" href="#" onClick={this.props.myFunction}>refresh</i>
                             </NavLink>
                         </NavItem>
                     </Nav>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem>
-                                    <NavLink>
-                                    <i id="refreshIcon" className="material-icons d-none d-sm-block" href="#" onClick={this.props.myFunction}>refresh</i>
+                                <NavItem className="d-none d-sm-block">
+                                    <NavLink className="material-icons rotate" id="rotate">
+                                    <i id="refreshIcon" className="material-icons rotate" href="#" onClick={this.props.myFunction}>refresh</i>
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>

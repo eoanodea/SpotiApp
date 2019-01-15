@@ -32,6 +32,12 @@ nav {
     margin: auto 0;
     }
 }
+.navLogin {
+    cursor: pointer;
+}
+.formMessage {
+    margin-top: 15px;
+}
 .rotate {
     animation: rotateKeyFrames .4s;
 }
@@ -64,6 +70,9 @@ nav {
 a { 
     text-decoration: none;
     color: #fff;
+}
+.form-group input {
+    margin: 20px 0;
 }
 #progress {
     width: 60%;

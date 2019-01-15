@@ -389,6 +389,14 @@ nav a, nav i {
   margin: auto 0;
 }
 
+.navLogin {
+  cursor: pointer;
+}
+
+.formMessage {
+  margin-top: 15px;
+}
+
 .rotate {
   animation: rotateKeyFrames 0.4s;
 }
@@ -422,6 +430,10 @@ nav a, nav i {
 a {
   text-decoration: none;
   color: #fff;
+}
+
+.form-group input {
+  margin: 20px 0;
 }
 
 #progress {
