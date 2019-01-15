@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
 
@@ -8,6 +9,7 @@ import {
   getInStorage,
   setInStorage
 } from '../../utilities/storage';
+import { AppNavbar } from './AppNavbar.Component';
 
 export class Login extends React.Component {
   constructor(props) {
@@ -38,13 +40,13 @@ export class Login extends React.Component {
   }
   componentDidMount() {
     const obj = getFromStorage('the_main_app');
-    if(obj && obj.token) {
+    if (obj && obj.token) {
       const { token } = obj;
       //Verify token with GET request
       fetch('http://localhost:5000/api/account/verify?token=' + token)
         .then(res => res.json())
         .then(json => {
-          if(json.success) {
+          if (json.success) {
             this.setState({
               token,
               isLoading: false
@@ -105,7 +107,7 @@ export class Login extends React.Component {
       isLoading: true
     });
     //Post request to backend
-    fetch('http://localhost:5000/api/account/signup', { 
+    fetch('http://localhost:5000/api/account/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -128,7 +130,7 @@ export class Login extends React.Component {
             signUpPassword: '',
             signUpFirstName: '',
             signUpLastName: ''
-          }); 
+          });
         } else {
           this.setState({
             signUpError: json.message,
@@ -139,47 +141,47 @@ export class Login extends React.Component {
 
   }
   onSignIn() {
-  //Grab State
-  const {
-    signInEmail,
-    signInPassword
-  } = this.state;
+    //Grab State
+    const {
+      signInEmail,
+      signInPassword
+    } = this.state;
 
-  this.setState({
-    isLoading: true
-  });
-  //Post request to backend
-  fetch('http://localhost:5000/api/account/signin', { 
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      email: signInEmail,
-      password: signInPassword
-    }),
-  })
-    .then(res => res.json())
-    .then(json => {
-      console.log('json', json);
-      if (json.success) {
-        setInStorage('the_main_app', { token: json.token });
-        this.setState({
-          signInError: json.message,
-          isLoading: false,
-          signInEmail: '',
-          signInPassword: '',
-          token: json.token
-        }); 
-        console.log("token received");
-        window.location.replace("http://localhost:8080/profile/");
-      } else {
-        this.setState({
-          signInError: json.message,
-          isLoading: false,
-        });
-      }
+    this.setState({
+      isLoading: true
     });
+    //Post request to backend
+    fetch('http://localhost:5000/api/account/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: signInEmail,
+        password: signInPassword
+      }),
+    })
+      .then(res => res.json())
+      .then(json => {
+        console.log('json', json);
+        if (json.success) {
+          setInStorage('the_main_app', { token: json.token });
+          this.setState({
+            signInError: json.message,
+            isLoading: false,
+            signInEmail: '',
+            signInPassword: '',
+            token: json.token
+          });
+          console.log("token received");
+          window.location.replace("http://localhost:8080/profile/");
+        } else {
+          this.setState({
+            signInError: json.message,
+            isLoading: false,
+          });
+        }
+      });
 
   }
   logout() {
@@ -187,13 +189,13 @@ export class Login extends React.Component {
       isLoading: true
     });
     const obj = getFromStorage('the_main_app');
-    if(obj && obj.token) {
+    if (obj && obj.token) {
       const { token } = obj;
       //Verify token with GET request
       fetch('http://localhost:5000/api/account/logout?token=' + token)
         .then(res => res.json())
         .then(json => {
-          if(json.success) {
+          if (json.success) {
             this.setState({
               token: "",
               isLoading: false
@@ -209,10 +211,11 @@ export class Login extends React.Component {
         isLoading: false
       });
     }
-    
+
   }
 
   render() {
+
     const {
       isLoading,
       token,
@@ -227,69 +230,80 @@ export class Login extends React.Component {
     } = this.state;
 
     if (isLoading) {
-      return(<div><p>Loading...</p></div>);
-    } 
-    if(!token) {
+      return (<div><p>Loading...</p></div>);
+    }
+    if (!token) {
       return (
         <div>
-          <div>
-            {
-              (signInError) ? (
-                <p>{signInError}</p>
-              ) : (null)
-            }
-              <p>Sign In</p>
-              <input 
-                type="email" 
-                placeholder="Email" 
+          <AppNavbar />
+          <div className="container">
+
+            <div className="form-signin">
+              {
+                (signInError) ? (
+                  <p>{signInError}</p>
+                ) : (null)
+              }
+              <h1 className="h3 mb-3">Sign In</h1>
+              <input
+                className="form-control"
+                type="email"
+                placeholder="Email"
                 value={signInEmail}
                 onChange={this.onTextboxChangeSignInEmail}
-                
+
               /><br />
-              <input 
-                type="password" 
-                placeholder="Password" 
+              <input
+                className="form-control"
+                type="password"
+                placeholder="Password"
                 value={signInPassword}
                 onChange={this.onTextboxChangeSignInPassword}
-                
+
               /><br />
-              <button onClick={this.onSignIn}>Sign In</button>
-          </div>
-          <br />
-          <div>
-            {
-              (signUpError) ? (
-                <p>{signUpError}</p>
-              ) : (null)
-            }
-              <p>Sign Up</p>
-              <input 
-                type="text" 
-                placeholder="First Name" 
+              <button className="btn btn-lg btn-primary btn-block" onClick={this.onSignIn}>Sign In</button>
+            </div>
+            <br />
+            <div>
+              {
+                (signUpError) ? (
+                  <p>{signUpError}</p>
+                ) : (null)
+              }
+              <h1 className="h3 mb-3">Sign up</h1>
+              <input
+                className="form-control"
+                type="text"
+                placeholder="First Name"
                 value={signUpFirstName}
                 onChange={this.onTextboxChangeSignUpFirstName}
               /><br />
-              <input 
-                type="text" 
-                placeholder="Last Name" 
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Last Name"
                 value={signUpLastName}
                 onChange={this.onTextboxChangeSignUpLastName}
               /><br />
-              <input 
-                type="email" 
-                placeholder="Email" 
+              <input
+                className="form-control"
+                type="email"
+                placeholder="Email"
                 value={signUpEmail}
                 onChange={this.onTextboxChangeSignUpEmail}
               /><br />
-              <input 
-                type="password" 
-                placeholder="Password" 
+              <input
+                className="form-control"
+                type="password"
+                placeholder="Password"
                 value={signUpPassword}
                 onChange={this.onTextboxChangeSignUpPassword}
               /><br />
-              <button onClick={this.onSignUp}>Sign Up</button>
+              <button className="btn btn-lg btn-success btn-block" onClick={this.onSignUp}>Sign Up</button>
+            </div>
           </div>
         </div>
+
       );
     }
     return (
