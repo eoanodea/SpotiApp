@@ -19,8 +19,10 @@ export class HomePage extends React.Component {
             loggedIn: token ? true : false,
             nowPlaying: {
                 name: 'Not Checked',
-                albumArt: ''
-            }
+                albumArt: '',
+
+            },
+            iconName: "SpotiApp"
         }
 
 
@@ -87,10 +89,11 @@ export class HomePage extends React.Component {
 
 
     render() {
+        console.log(this.state.iconName);
         return (
             <div>
                 {/* <MainNavigation myFunction={this.getNowPlaying} /> */}
-                <AppNavbar myFunction={this.getNowPlaying} />
+                <AppNavbar myFunction={this.getNowPlaying} iconName={this.state.iconName} />
                 <div className="container">
 
                     <div>

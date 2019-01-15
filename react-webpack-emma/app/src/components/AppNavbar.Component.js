@@ -14,7 +14,7 @@ import Spotify from 'spotify-web-api-js';
 const spotifyWebApi = new Spotify();
 
 export class AppNavbar extends React.Component {
-    constructor() {
+    constructor(props) {
         super();
         const params = this.getHashParams();
         this.state = {
@@ -40,7 +40,7 @@ export class AppNavbar extends React.Component {
         }
         return hashParams;
     }
-    
+
     state = {
         isOpen: false
     }
@@ -50,7 +50,7 @@ export class AppNavbar extends React.Component {
             isOpen: !this.state.isOpen
         })
     }
-    
+
     profile() {
         spotifyWebApi.getUser().then((response) => {
             this.setState({
@@ -77,26 +77,28 @@ export class AppNavbar extends React.Component {
     }
 
     render() {
+        console.log(this.props.iconName);
         return (
             <div>
+
                 <Navbar color="dark" dark expand="sm" className="mb-5">
                     <Container>
                         <NavbarBrand href="/" >
-                            My Song List
-                    </NavbarBrand>
-                    <Nav className="d-block d-sm-none">
-                        <NavItem>
-                            <NavLink>
-                                <i id="refreshIcon" className="material-icons" href="#" onClick={this.props.myFunction}>refresh</i>
-                            </NavLink>
-                        </NavItem>
-                    </Nav>
+                            {this.props.iconName}
+                        </NavbarBrand>
+                        <Nav className="d-block d-sm-none">
+                            <NavItem>
+                                <NavLink>
+                                    <i id="refreshIcon" className="material-icons" href="#" onClick={this.props.myFunction}>refresh</i>
+                                </NavLink>
+                            </NavItem>
+                        </Nav>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
                                     <NavLink>
-                                    <i id="refreshIcon" className="material-icons d-none d-sm-block" href="#" onClick={this.props.myFunction}>refresh</i>
+                                        <i id="refreshIcon" className="material-icons d-none d-sm-block" href="#" onClick={this.props.myFunction}>refresh</i>
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
@@ -106,11 +108,11 @@ export class AppNavbar extends React.Component {
                                 </NavItem>
                                 <NavItem className="d-none d-sm-block">
                                     <NavLink>
-                                        <div className="divider"></div>            
+                                        <div className="divider"></div>
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                        <this.profile />  
+                                    <this.profile />
                                 </NavItem>
                             </Nav>
                         </Collapse>
