@@ -272,7 +272,7 @@ export class Login extends React.Component {
         activeTab: tab
         });
     }
-}
+  }
 
   render() {
 

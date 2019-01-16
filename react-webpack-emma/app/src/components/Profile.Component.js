@@ -9,13 +9,15 @@ export class Profile extends React.Component {
         super();
         this.state = {
             term: "",
-            items: []
+            items: [],
+            iconName: "My profile"
         };
     }
     render() {
         return (
             <div className="App">
-                <AppNavbar />
+
+                <AppNavbar iconName={this.state.iconName} />
                 <SongList />
 
                 <div className="row">
