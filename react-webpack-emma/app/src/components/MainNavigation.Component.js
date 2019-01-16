@@ -33,6 +33,9 @@ export class MainNavigation extends React.Component {
         return hashParams;
     }
 
+    loggedIn = () => {
+        
+    }
 
     profile() {
         // console.log(spotifyWebApi.getAccessToken(params.access_token))

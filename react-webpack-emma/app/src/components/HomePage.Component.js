@@ -63,16 +63,10 @@ export class HomePage extends React.Component {
                             position: response.progress_ms
                         }
                     });
-<<<<<<< HEAD
                     })
                     console.log("fetch")
                 }
          else {
-=======
-                })
-        }
-        else {
->>>>>>> e23526568ca89265bc4729de33addbb34938b718
             loggedIn = false;
             console.log(loggedIn)
             this.setState({

@@ -1,23 +1,10 @@
 import React from 'react';
 import {
-    Button,
     Modal,
     ModalHeader,
     ModalBody,
-    Form,
-    FormGroup,
-    Label,
-    Input,
-    TabContent,
-    TabPane,
-    Nav,
-    NavItem,
     NavLink,
-    Card,
-    CardTitle,
-    CardText,
-    Row,
-    Col
+
 } from 'reactstrap';
 
 import { Login } from './Login.Component';
@@ -30,7 +17,8 @@ export class FormModal extends React.Component {
     }
     state = {
         modal: false,
-        name: ''
+        name: '',
+        alertMessage: this.props.alertMessage
     }
 
     toggle = () => {
@@ -43,12 +31,14 @@ export class FormModal extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     }
     loggedIn = (props) => {
+        
         // var token = this.token;
         // this.props.token(token);
 
         // console.log(token);
-        console.log("hi")
+        console.log(alertMessage);
     }
+
 
 
     render() {
@@ -56,7 +46,6 @@ export class FormModal extends React.Component {
         const { token } = this.state;
         return(
         <div>
-            <button onClick={this.loggedIn}>button</button>
             <NavLink className="navLogin" onClick={this.toggle}>Login</NavLink>
                 <Modal
                     isOpen={this.state.modal}
