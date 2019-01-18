@@ -34,7 +34,7 @@ export class FormModal extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     }
     loggedIn = (props) => {
-        console.log(this.props.isLoggedIn().loggedIn);
+       
         
     }
 
