@@ -4,6 +4,7 @@ import {
     ModalHeader,
     ModalBody,
     NavLink,
+    Button
 
 } from 'reactstrap';
 
@@ -12,11 +13,10 @@ import { Login } from './Login.Component';
 export class FormModal extends React.Component {
     constructor(props) {
         super(props);
-
-        
+  
     }
     componentWillMount = () => {
-        console.log(this.props.randomString);
+      
     }
     state = {
         modal: false,
@@ -34,12 +34,8 @@ export class FormModal extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     }
     loggedIn = (props) => {
+        console.log(this.props.isLoggedIn().loggedIn);
         
-        // var token = this.token;
-        // this.props.token(token);
-
-        // console.log(token);
-        console.log(alertMessage);
     }
 
 
@@ -47,7 +43,7 @@ export class FormModal extends React.Component {
     render() {
         return(
             <div>
-                <h1>{this.props.randomString}</h1>
+                <Button onClick={this.loggedIn()} />
                 <NavLink className="navLogin" onClick={this.toggle}>Login</NavLink>
                     <Modal
                         isOpen={this.state.modal}
