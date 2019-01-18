@@ -10,15 +10,15 @@ export class Profile extends React.Component {
         this.state = {
             term: "",
             items: [],
-            iconName: "My profile"
+            iconName: "My profile",
+            dumbString: "Shut the fuck up Ryan"
         };
     }
     render() {
         return (
             <div className="App">
-
                 <AppNavbar iconName={this.state.iconName} />
-                <SongList />
+
 
                 <div className="row">
                     <div className="col-md-6 mx-auto">

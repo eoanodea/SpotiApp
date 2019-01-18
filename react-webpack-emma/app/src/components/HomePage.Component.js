@@ -8,7 +8,7 @@ const spotifyWebApi = new Spotify();
 
 
 export class HomePage extends React.Component {
-    constructor() {
+    constructor(props) {
         super();
         const params = this.getHashParams();
         const token = params.access_token;
@@ -93,10 +93,10 @@ export class HomePage extends React.Component {
         console.log(this.state.iconName);
         return (
             <div>
-                {/* <MainNavigation myFunction={this.getNowPlaying} /> */}
+                
                 <AppNavbar myFunction={this.getNowPlaying} iconName={this.state.iconName} />
                 <div className="container">
-
+                <h1>{this.props.dumbString}</h1>
                     <div>
                         <h2>{this.state.nowPlaying.name} </h2>
                         <h3>{this.state.nowPlaying.album}</h3>

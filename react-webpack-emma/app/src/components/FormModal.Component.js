@@ -15,6 +15,9 @@ export class FormModal extends React.Component {
 
         
     }
+    componentWillMount = () => {
+        console.log(this.props.randomString);
+    }
     state = {
         modal: false,
         name: '',
@@ -40,23 +43,22 @@ export class FormModal extends React.Component {
     }
 
 
-
+    //This is FormModal.Component
     render() {
-        
-        const { token } = this.state;
         return(
-        <div>
-            <NavLink className="navLogin" onClick={this.toggle}>Login</NavLink>
-                <Modal
-                    isOpen={this.state.modal}
-                    toggle={this.toggle}
-                    >
-                    <ModalHeader toggle={this.toggle}>Sign In</ModalHeader>
-                    <ModalBody> 
-                    <Login />
-                </ModalBody>
-            </Modal>
-        </div>
+            <div>
+                <h1>{this.props.randomString}</h1>
+                <NavLink className="navLogin" onClick={this.toggle}>Login</NavLink>
+                    <Modal
+                        isOpen={this.state.modal}
+                        toggle={this.toggle}
+                        >
+                        <ModalHeader toggle={this.toggle}>Sign In</ModalHeader>
+                        <ModalBody> 
+                        <Login />
+                    </ModalBody>
+                </Modal>
+            </div>
         );
     }
 }

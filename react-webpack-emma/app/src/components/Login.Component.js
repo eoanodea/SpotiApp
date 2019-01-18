@@ -17,12 +17,15 @@ import {
 import Profile from './Profile.Component';
 import classnames from 'classnames';
 
+
 import {
   getFromStorage,
   getInStorage,
   setInStorage
 } from '../../utilities/storage';
 import { AppNavbar } from './AppNavbar.Component';
+
+import { FormModal } from './FormModal.Component';
 
 export class Login extends React.Component {
   constructor(props) {
@@ -49,12 +52,12 @@ export class Login extends React.Component {
     this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
     this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
 
-    this.onSignIn = this.onSignIn.bind(this);
+    // this.onSignIn = this.onSignIn.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
     this.logout = this.logout.bind(this);
 
     this.toggle = this.toggle.bind(this);
-    this.isLoggedIn = this.isLoggedIn.bind(this);
+    // this.isLoggedIn = this.isLoggedIn.bind(this);
 
     this.state = {
       activeTab: '1'
@@ -170,12 +173,14 @@ export class Login extends React.Component {
         }
       });
   }
-  onSignIn() {
+  onSignIn = (e) => {
     //Grab State
     const {
       signInEmail,
       signInPassword
     } = this.state;
+
+    e.preventDefault();
 
     this.setState({
       isLoading: true
@@ -245,20 +250,20 @@ export class Login extends React.Component {
   }
 
   isLoggedIn = (props) => {
-    if(!token) {
+    if(token) {
       this.setState({
         loggedIn: true
 
       })
       return(
-        <NavLink className="navLogin" onClick={this.toggle}>Login</NavLink>
+        <NavLink className="navLogin" onClick={this.logout}>Logout</NavLink>
       );
     } else {
       this.setState({
         loggedIn: false
       })
       return(
-        <NavLink className="navLogin" onClick={this.logout}>Logout</NavLink>
+        <NavLink className="navLogin" onClick={this.toggle}>Login</NavLink>
       );
     }
 
@@ -297,6 +302,7 @@ export class Login extends React.Component {
     if (!isLoading || token) {
     return (
       <div>
+        <FormModal randomString={this.state.randomString} />
         <Nav tabs>
             <NavItem>
                 <NavLink
