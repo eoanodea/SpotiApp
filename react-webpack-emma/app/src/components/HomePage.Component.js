@@ -97,19 +97,7 @@ export class HomePage extends React.Component {
                 
                 <AppNavbar myFunction={this.getNowPlaying} iconName={this.state.iconName} />
                 <div className="container">
-                <h1>{this.props.dumbString}</h1>
-                    <div>
-                        <h2>{this.state.nowPlaying.name} </h2>
-                        <h3>{this.state.nowPlaying.album}</h3>
-                        <h3>{this.state.nowPlaying.artist}</h3>
-                    </div>
-                    <div>
-                        <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
-                    </div>
-
-                    <div id="progress">
-                        <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
-                    </div>
+                    <h2>Ryan cunt</h2>
                 </div>
             </div>
         );

@@ -379,6 +379,7 @@ header div {
 
 .material-icons {
   color: white;
+  margin: auto 0;
 }
 
 nav {
@@ -447,18 +448,23 @@ a {
 .nowPlaying .container {
   display: flex;
 }
+.nowPlayingContainer {
+  position: absolute;
+  left: 0px;
+  bottom: 30px;
+  padding: 20px;
+  width: 160px;
+  height: 185px;
+  background-color: #353A3F;
+}
 .nowPlayingName {
-  position: relative;
-  left: 10px;
-  bottom: 80px;
-  width: 100px;
   color: #fff;
 }
 .nowPlayingName img {
   margin-bottom: 10px;
 }
 .nowPlayingName h3, .nowPlayingName p {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 #progress {
@@ -471,6 +477,7 @@ a {
   margin: 50px 0;
   height: 30px;
   background-color: green;
+  border-radius: 15px;
 }
 
 .icon {

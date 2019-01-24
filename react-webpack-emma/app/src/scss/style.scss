@@ -23,6 +23,7 @@ header div {
 }
 .material-icons {
     color: white;
+    margin: auto 0;
 }
 nav {
     margin: auto 0;
@@ -84,11 +85,16 @@ a {
     & .container {
         display: flex;
     }
+    &Container {
+        position: absolute;
+        left: 0px;
+        bottom: 30px;
+        padding: 20px;
+        width: 160px;
+        height: 185px;
+        background-color: #353A3F;
+    }
     &Name {
-        position: relative;
-        left: 10px;
-        bottom: 80px;
-        width: 100px;
         color: #fff;
     }
     &Name img {
@@ -96,7 +102,7 @@ a {
     }
     &Name h3,
     &Name p {
-        margin-left: 10px;
+        margin-left: 5px;
     }
 }
 #progress {
@@ -108,6 +114,7 @@ a {
     margin: 50px 0;
     height: 30px;
     background-color: green;
+    border-radius: 15px;
 
 }
 .icon {
