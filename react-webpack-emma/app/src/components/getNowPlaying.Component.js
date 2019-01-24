@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Spotify from 'spotify-web-api-js';
 import { AppNavbar } from './AppNavbar.Component';
+import Default from '../images/default.png';
 
 const spotifyWebApi = new Spotify();
 
@@ -16,7 +17,7 @@ export class GetNowPlaying extends React.Component {
             loggedIn: token ? true : false,
             nowPlaying: {
                 name: '',
-                albumArt: '',
+                image: '',
 
             },
             iconName: "SpotiApp"
@@ -83,6 +84,17 @@ export class GetNowPlaying extends React.Component {
         if (this.getNowPlaying.loggedIn = true) setInterval(() => {
             this.getNowPlaying()
         }, 10000)
+
+        if(this.state.nowPlaying.image === '') {
+            this.setState({
+                nowPlaying: {
+                    song: 'Song',
+                    album: 'Album',
+                    artist: 'Artist',
+                    image: Default
+                }
+            })
+        }
     }
 
 
@@ -90,18 +102,16 @@ export class GetNowPlaying extends React.Component {
         console.log(this.state.iconName);
         return (
            <div className="nowPlaying">
-                <div>
-                    <h2>{this.state.nowPlaying.name} </h2>
-                    <h3>{this.state.nowPlaying.album}</h3>
-                    <h3>{this.state.nowPlaying.artist}</h3>
-                </div>
-                <div>
+            <div class="container">
+                    <div className="nowPlayingName">
                     <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
+                    <h3>{this.state.nowPlaying.song}</h3>
+                    <p>{this.state.nowPlaying.artist}</p>
                 </div>
-
-                <div id="progress">
+                <div id="progress" className>
                     <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
                 </div> 
+                </div>
             </div>
         );
     }

@@ -75,17 +75,33 @@ a {
     margin: 20px 0;
 }
 .nowPlaying {
-    position: absolute;
+    position: fixed;
     background-color: #343a40;
     width: 100%;
     bottom: 0;
     left: 0;
     height: 100px;
+    & .container {
+        display: flex;
+    }
+    &Name {
+        position: relative;
+        left: 10px;
+        bottom: 80px;
+        width: 100px;
+        color: #fff;
+    }
+    &Name img {
+        margin-bottom: 10px;
+    }
+    &Name h3,
+    &Name p {
+        margin-left: 10px;
+    }
 }
 #progress {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
-    background-color: grey;
 }
 #bar {
     width: 100%;
