@@ -7,6 +7,8 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css?family=Sarabun");
+@import url("https://www.w3schools.com/w3css/4/w3.css");
 html {
   line-height: 1.15;
   /* 1 */
@@ -358,8 +360,7 @@ template {
 
 body {
   font-family: "roboto", serif;
-  background-color: darkslategrey;
-  color: #ffffff;
+  background-color: darkslategrey !important;
 }
 
 header div {
@@ -387,6 +388,27 @@ nav {
 }
 nav a, nav i {
   margin: auto 0;
+}
+
+#homepage {
+  background: darkslategray;
+}
+
+#homePageIcon {
+  width: 150px;
+  height: 150px;
+}
+
+#title {
+  color: white;
+  margin: 250px 0 0 0;
+  text-align: center;
+  font-size: 80px;
+  font-family: "Sarabun";
+}
+
+#getStarted {
+  text-align: center;
 }
 
 .navLogin {

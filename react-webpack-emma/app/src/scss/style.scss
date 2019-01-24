@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import 'reset/import.scss';
 @import 'fonts/fonts.scss';
-
+@import url('https://fonts.googleapis.com/css?family=Sarabun');
+@import url('https://www.w3schools.com/w3css/4/w3.css');    
 
 body {
     font-family: 'roboto',serif;    
-    background-color: darkslategrey;
-    color: #ffffff;
+    background-color: darkslategrey!important;
+   
 }
 header div {
     display: flex;
@@ -32,6 +33,32 @@ nav {
     margin: auto 0;
     }
 }
+//Homepage
+#homepage
+{
+    background:darkslategray;
+}
+#homePageIcon
+{
+    width: 150px;
+    height: 150px;  
+     
+}
+#title
+{
+    color: white;
+    margin: 250px 0 0 0;
+    text-align: center;
+    font-size: 80px;
+    font-family: "Sarabun";
+}
+#getStarted
+{
+    text-align: center;
+    
+}
+
+
 .navLogin {
     cursor: pointer;
 }
