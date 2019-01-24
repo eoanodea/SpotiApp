@@ -53,7 +53,7 @@ nav {
     to {
      transform: rotate(360deg);
     }
-   }
+}
    @keyframes rotateKeyFrames2 {
     from {
      transform: rotate(0deg);
@@ -62,7 +62,7 @@ nav {
     to {
      transform: rotate(360deg);
     }
-   }
+}
 .divider {
     border: 1px solid #fff;
     height: 25px;
@@ -93,6 +93,7 @@ a {
         width: 160px;
         height: 185px;
         background-color: #353A3F;
+        border-radius: 0 7.5px 0 0;
     }
     &Name {
         color: #fff;
@@ -108,6 +109,7 @@ a {
 #progress {
     width: 80%;
     margin: 0 auto;
+
 }
 #bar {
     width: 100%;

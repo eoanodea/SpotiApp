@@ -456,6 +456,7 @@ a {
   width: 160px;
   height: 185px;
   background-color: #353A3F;
+  border-radius: 0 7.5px 0 0;
 }
 .nowPlayingName {
   color: #fff;
