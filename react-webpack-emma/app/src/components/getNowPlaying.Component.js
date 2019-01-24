@@ -23,7 +23,6 @@ export class GetNowPlaying extends React.Component {
             iconName: "SpotiApp"
         }
 
-
         if (params.access_token) {
             spotifyWebApi.setAccessToken(params.access_token)
         }
@@ -40,17 +39,18 @@ export class GetNowPlaying extends React.Component {
         }
         return hashParams;
     }
-    getNowPlaying() {
-
-        // let loggedIn = false;
-        // if (window.location.href.includes('#access_token')) {
-        //     loggedIn = true;
-        //     var refreshIcon = document.getElementById('rotate');
-        //     if (refreshIcon.className === "material-icons rotate") {
-        //         refreshIcon.className = "material-icons rotate2";
-        //     } else {
-        //         refreshIcon.className = "mmaterial-icons rotate";
-        //     }
+    getNowPlaying () {
+        var refreshIcon = document.getElementById('refreshIcon');
+        if (refreshIcon.className == "material-icons d-none d-sm-block rotate") {
+            refreshIcon.className = "material-icons d-none d-sm-block rotate2";
+            console.log("rotate");
+        } else {
+            refreshIcon.className = "material-icons d-none d-sm-block rotate";
+            console.log("rotate2");
+        }
+        let loggedIn = false;
+        if (window.location.href.includes('#access_token')) {
+            loggedIn = true;
             spotifyWebApi.getMyCurrentPlaybackState()
                 .then((response) => {
                     this.setState({
@@ -60,59 +60,52 @@ export class GetNowPlaying extends React.Component {
                             album: response.item.album.name,
                             image: response.item.album.images[0].url,
                             duration: response.item.duration_ms,
-                            position: response.progress_ms
+                            position: response.progress_ms,
+                            
                         }
                     });
-                    })
-                    console.log("fetch")
-                }
-        //  else {
-        //     loggedIn = false;
-        //     console.log(loggedIn)
-        //     this.setState({
-        //         nowPlaying: {
-        //             song: 'Please Log In',
-        //             image: ''
-        //         }
-        //     })
-
-        // }
-    
-
-
-    componentDidMount() {
-        if (this.getNowPlaying.loggedIn = true) setInterval(() => {
-            this.getNowPlaying()
-        }, 10000)
-
-        if(this.state.nowPlaying.image === '') {
+                })
+                console.log("fetch");
+        }
+         else {
+            loggedIn = false;
+            console.log(loggedIn)
             this.setState({
                 nowPlaying: {
                     song: 'Song',
                     album: 'Album',
                     artist: 'Artist',
-                    image: Default
+                    image: Default,
+                    
                 }
             })
+
         }
+    }
+    componentDidMount() {
+        if (this.getNowPlaying.loggedIn = true) setInterval(() => {
+            this.getNowPlaying()
+        }, 10000)
     }
 
 
     render() {
-        console.log(this.state.iconName);
         return (
            <div className="nowPlaying">
-            <div class="container">
-                    <div className="nowPlayingName">
-                    <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
-                    <h3>{this.state.nowPlaying.song}</h3>
-                    <p>{this.state.nowPlaying.artist}</p>
+                <div className="container">
+                    <div className="nowPlayingContainer">
+                        <div className="nowPlayingName">
+                            <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
+                            <p>{this.state.nowPlaying.song}</p>
+                            <p>{this.state.nowPlaying.artist}</p>
+                        </div>
+                    </div>
+                    <div id="progress">
+                        <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
+                    </div>
+                        <i id="refreshIcon" className="material-icons d-none d-sm-block rotate" href="#" onClick={this.getNowPlaying}>refresh</i>
+                    </div>
                 </div>
-                <div id="progress" className>
-                    <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
-                </div> 
-                </div>
-            </div>
         );
     }
 }
