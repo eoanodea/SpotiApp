@@ -2,7 +2,7 @@
 @import 'reset/import.scss';
 @import 'fonts/fonts.scss';
 @import url('https://fonts.googleapis.com/css?family=Sarabun');
-@import url('https://www.w3schools.com/w3css/4/w3.css');    
+
 
 body {
     font-family: 'roboto',serif;    
@@ -34,6 +34,9 @@ nav {
     }
 }
 //Homepage
+.w3-animate-opacity {
+    animation: opac 2s;
+}
 #homepage
 {
     background:darkslategray;
@@ -47,15 +50,15 @@ nav {
 #title
 {
     color: white;
-    margin: 250px 0 0 0;
+    margin: 150px 0 0 0;
     text-align: center;
-    font-size: 80px;
+    font-size: 150px;
     font-family: "Sarabun";
 }
 #getStarted
 {
     text-align: center;
-    
+
 }
 
 
@@ -138,8 +141,11 @@ a {
 
 }
 .icon {
-    width: 50px;
-    height: 50px;
+    margin-left: 750px;
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+    text-align: center
 }
 .aggregate{
     color: #fff; 
@@ -147,6 +153,7 @@ a {
     display: inline-block;
     margin-top: 50px;
 }
+
 .list{
     color: #fff;
     width: 25%;

@@ -20,12 +20,14 @@ export class HomePage extends React.Component {
             <div id="HomePage">
                 
                 <AppNavbar/>
+                <div><img className="icon" src={SpotifyIcon}/></div>
                 <div className="container">
                 <div class="w3-animate-opacity">
-                <div id="title">Spoti-app</div>
+                <div id="title">Spoti-App</div>
                 </div>
                 <div id="getStarted">
                     <Button color="primary" size="lg" active><FormModal /></Button>
+                   
                 </div>
                 
 
