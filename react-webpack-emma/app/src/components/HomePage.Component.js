@@ -47,12 +47,12 @@ export class HomePage extends React.Component {
         let loggedIn = false;
         if (window.location.href.includes('#access_token')) {
             loggedIn = true;
-            var refreshIcon = document.getElementById('rotate');
-            if (refreshIcon.className === "material-icons rotate") {
-                refreshIcon.className = "material-icons rotate2";
-            } else {
-                refreshIcon.className = "mmaterial-icons rotate";
-            }
+            // var refreshIcon = document.getElementById('rotate');
+            // if (refreshIcon.className === "material-icons rotate") {
+            //     refreshIcon.className = "material-icons rotate2";
+            // } else {
+            //     refreshIcon.className = "mmaterial-icons rotate";
+            // }
             spotifyWebApi.getMyCurrentPlaybackState()
                 .then((response) => {
                     this.setState({

@@ -43,7 +43,6 @@ export class FormModal extends React.Component {
     render() {
         return(
             <div>
-                <Button onClick={this.loggedIn()} />
                 <NavLink className="navLogin" onClick={this.toggle}>Login</NavLink>
                     <Modal
                         isOpen={this.state.modal}

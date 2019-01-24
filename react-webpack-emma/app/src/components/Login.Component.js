@@ -302,7 +302,7 @@ export class Login extends React.Component {
     if (!isLoading || token) {
     return (
       <div>
-        <FormModal randomString={this.state.randomString} />
+      
         <Nav tabs>
             <NavItem>
                 <NavLink
