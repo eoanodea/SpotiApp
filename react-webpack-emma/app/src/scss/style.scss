@@ -74,6 +74,14 @@ a {
 .form-group input {
     margin: 20px 0;
 }
+.nowPlaying {
+    position: absolute;
+    background-color: #343a40;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+}
 #progress {
     width: 60%;
     margin: 0 auto;

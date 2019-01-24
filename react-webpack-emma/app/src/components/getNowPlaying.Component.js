@@ -1,14 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Spotify from 'spotify-web-api-js';
 import { AppNavbar } from './AppNavbar.Component';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
-
 
 const spotifyWebApi = new Spotify();
 
-
-export class HomePage extends React.Component {
+export class GetNowPlaying extends React.Component {
     constructor(props) {
         super();
         const params = this.getHashParams();
@@ -19,7 +15,7 @@ export class HomePage extends React.Component {
         this.state = {
             loggedIn: token ? true : false,
             nowPlaying: {
-                name: 'Not Checked',
+                name: '',
                 albumArt: '',
 
             },
@@ -45,15 +41,15 @@ export class HomePage extends React.Component {
     }
     getNowPlaying() {
 
-        let loggedIn = false;
-        if (window.location.href.includes('#access_token')) {
-            loggedIn = true;
-            // var refreshIcon = document.getElementById('rotate');
-            // if (refreshIcon.className === "material-icons rotate") {
-            //     refreshIcon.className = "material-icons rotate2";
-            // } else {
-            //     refreshIcon.className = "mmaterial-icons rotate";
-            // }
+        // let loggedIn = false;
+        // if (window.location.href.includes('#access_token')) {
+        //     loggedIn = true;
+        //     var refreshIcon = document.getElementById('rotate');
+        //     if (refreshIcon.className === "material-icons rotate") {
+        //         refreshIcon.className = "material-icons rotate2";
+        //     } else {
+        //         refreshIcon.className = "mmaterial-icons rotate";
+        //     }
             spotifyWebApi.getMyCurrentPlaybackState()
                 .then((response) => {
                     this.setState({
@@ -69,18 +65,18 @@ export class HomePage extends React.Component {
                     })
                     console.log("fetch")
                 }
-         else {
-            loggedIn = false;
-            console.log(loggedIn)
-            this.setState({
-                nowPlaying: {
-                    song: 'Please Log In',
-                    image: ''
-                }
-            })
+        //  else {
+        //     loggedIn = false;
+        //     console.log(loggedIn)
+        //     this.setState({
+        //         nowPlaying: {
+        //             song: 'Please Log In',
+        //             image: ''
+        //         }
+        //     })
 
-        }
-    }
+        // }
+    
 
 
     componentDidMount() {
@@ -93,24 +89,19 @@ export class HomePage extends React.Component {
     render() {
         console.log(this.state.iconName);
         return (
-            <div>
-                
-                <AppNavbar myFunction={this.getNowPlaying} iconName={this.state.iconName} />
-                <div className="container">
-                <h1>{this.props.dumbString}</h1>
-                    <div>
-                        <h2>{this.state.nowPlaying.name} </h2>
-                        <h3>{this.state.nowPlaying.album}</h3>
-                        <h3>{this.state.nowPlaying.artist}</h3>
-                    </div>
-                    <div>
-                        <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
-                    </div>
-
-                    <div id="progress">
-                        <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
-                    </div>
+           <div className="nowPlaying">
+                <div>
+                    <h2>{this.state.nowPlaying.name} </h2>
+                    <h3>{this.state.nowPlaying.album}</h3>
+                    <h3>{this.state.nowPlaying.artist}</h3>
                 </div>
+                <div>
+                    <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
+                </div>
+
+                <div id="progress">
+                    <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
+                </div> 
             </div>
         );
     }

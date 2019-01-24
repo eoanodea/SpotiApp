@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AppNavbar } from './AppNavbar.Component';
-
+import { GetNowPlaying } from './getNowPlaying.Component';
 import List from './List.Component';
+
 export class Profile extends React.Component {
     constructor(props) {
         super();
@@ -25,9 +26,12 @@ export class Profile extends React.Component {
                         <List />
                     </div>
                 </div>
-
+                
+                <GetNowPlaying />
+                
+                
             </div>
-        )
+        );
     }
 }
 
