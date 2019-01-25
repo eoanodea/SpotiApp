@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 @import 'reset/import.scss';
 @import 'fonts/fonts.scss';
 @import url('https://fonts.googleapis.com/css?family=Sarabun');
 
 
 body {
-    font-family: 'roboto',serif;    
-    background-color: darkslategrey!important;
+    font-family: "Sarabun", sans-serif;
    
 }
 header div {
@@ -35,26 +33,34 @@ nav {
     }
 }
 //Homepage
-.w3-animate-opacity {
+.homepage-fade-in {
     animation: opac 2s;
 }
-#homepage
-{
+.homepage {
     background:darkslategray;
+    &Content {
+        text-align: center;
+    }
 }
-#homePageIcon
-{
+.homepageContent {
+    & .container button {
+        padding: .3rem 1.5rem;
+        text-transform: uppercase;
+    }
+        
+}
+#homePageIcon {
     width: 150px;
     height: 150px;  
-     
 }
-#title
-{
+#title {
     color: white;
-    margin: 150px 0 0 0;
+    margin: 15px 0 25px 0;
     text-align: center;
-    font-size: 150px;
-    font-family: "Sarabun";
+    font-size: 5em;
+    @media(min-width: 700px) {
+        font-size: 7em;
+    }
 }
 #getStarted
 {
@@ -150,9 +156,9 @@ a {
 
 }
 .icon {
-    margin-left: 750px;
-    margin-top: 50px;
-    width: 150px;
+    // margin-left: 750px;
+    // margin-top: 50px;
+    // width: 150px;
     height: 150px;
     text-align: center
 }

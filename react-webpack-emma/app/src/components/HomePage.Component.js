@@ -17,22 +17,16 @@ export class HomePage extends React.Component {
     render() {
         
         return (
-            <div id="HomePage">
-                
+            <div className="homepage">
                 <AppNavbar/>
-                <div><img className="icon" src={SpotifyIcon}/></div>
+                <div className="homepageContent">
                 <div className="container">
-                <div class="w3-animate-opacity">
-                <div id="title">Spoti-App</div>
-                </div>
-                <div id="getStarted">
-                    <Button color="primary" size="lg" active><FormModal /></Button>
-                   
-                </div>
+                <img className="icon" src={SpotifyIcon}/>
                 
-
+                <h1 id="title" className="homepage-fade-in">SpotiApp</h1>
+                <Button color="primary" size="lg" active><FormModal /></Button>
                 </div>
-                
+                </div>
             </div>
         );
     }
