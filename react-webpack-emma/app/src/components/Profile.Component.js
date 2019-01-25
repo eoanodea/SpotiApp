@@ -24,15 +24,15 @@ export class Profile extends React.Component {
 
                 <div className="row">
                     <div className="col-md-6 mx-auto">
-                        <h1 className="text-center">TODO </h1>
+                        <h1 className="text-center">My favourite Songlist </h1>
                         <List />
 
                     </div>
                 </div>
-                
+
                 <GetNowPlaying />
-                
-                
+
+
             </div>
         );
     }

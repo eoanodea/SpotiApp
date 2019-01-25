@@ -109,7 +109,7 @@ a {
     color: #fff;
 }
 .form-group input {
-    margin: 20px 0;
+    margin: 0px 0;
 }
 .nowPlaying {
     position: fixed;
@@ -189,4 +189,13 @@ a {
 .fade-enter-active{
     opacity: 1;
     transition: opacity 1000ms ease-in;
+}
+
+.submitButton{
+    width: 150% !important;
+}
+
+.form-group label{
+    margin-top: 30px;
+    font-size: 30px;
 }

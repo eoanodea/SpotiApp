@@ -97,9 +97,7 @@ export class AppNavbar extends React.Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="https://github.com">
-                                        github
-                                    </NavLink>
+
                                 </NavItem>
                                 <NavItem className="d-none d-sm-block">
                                     <NavLink>
