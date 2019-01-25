@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 @import 'reset/import.scss';
 @import 'fonts/fonts.scss';
+@import url('https://fonts.googleapis.com/css?family=Sarabun');
 
 
 body {
-    font-family: 'roboto',serif;    
-    background-color: darkslategrey;
-    color: #ffffff;
+    font-family: "Sarabun", sans-serif;
+   
 }
 header div {
     display: flex;
@@ -23,6 +22,7 @@ header div {
 }
 .material-icons {
     color: white;
+    margin: auto 0;
 }
 nav {
     margin: auto 0;
@@ -32,6 +32,43 @@ nav {
     margin: auto 0;
     }
 }
+//Homepage
+.homepage-fade-in {
+    animation: opac 2s;
+}
+.homepage {
+    background:darkslategray;
+    &Content {
+        text-align: center;
+    }
+}
+.homepageContent {
+    & .container button {
+        padding: .3rem 1.5rem;
+        text-transform: uppercase;
+    }
+        
+}
+#homePageIcon {
+    width: 150px;
+    height: 150px;  
+}
+#title {
+    color: white;
+    margin: 15px 0 25px 0;
+    text-align: center;
+    font-size: 5em;
+    @media(min-width: 700px) {
+        font-size: 7em;
+    }
+}
+#getStarted
+{
+    text-align: center;
+
+}
+
+
 .navLogin {
     cursor: pointer;
 }
@@ -52,7 +89,7 @@ nav {
     to {
      transform: rotate(360deg);
     }
-   }
+}
    @keyframes rotateKeyFrames2 {
     from {
      transform: rotate(0deg);
@@ -61,7 +98,7 @@ nav {
     to {
      transform: rotate(360deg);
     }
-   }
+}
 .divider {
     border: 1px solid #fff;
     height: 25px;
@@ -74,21 +111,56 @@ a {
 .form-group input {
     margin: 20px 0;
 }
+.nowPlaying {
+    position: fixed;
+    background-color: #343a40;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    & .container {
+        display: flex;
+    }
+    &Container {
+        position: absolute;
+        left: 0px;
+        bottom: 30px;
+        padding: 20px;
+        width: 160px;
+        height: 185px;
+        background-color: #353A3F;
+        border-radius: 0 7.5px 0 0;
+    }
+    &Name {
+        color: #fff;
+    }
+    &Name img {
+        margin-bottom: 10px;
+    }
+    &Name h3,
+    &Name p {
+        margin-left: 5px;
+    }
+}
 #progress {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
-    background-color: grey;
+
 }
 #bar {
     width: 100%;
     margin: 50px 0;
     height: 30px;
     background-color: green;
+    border-radius: 15px;
 
 }
 .icon {
-    width: 50px;
-    height: 50px;
+    // margin-left: 750px;
+    // margin-top: 50px;
+    // width: 150px;
+    height: 150px;
+    text-align: center
 }
 .aggregate{
     color: #fff; 
@@ -96,6 +168,7 @@ a {
     display: inline-block;
     margin-top: 50px;
 }
+
 .list{
     color: #fff;
     width: 25%;

@@ -54,15 +54,6 @@ export class AppNavbar extends React.Component {
     }
 
     profile() {
-        spotifyWebApi.getUser().then((response) => {
-            this.setState({
-                //  display_name
-
-                //user profile picture to be added here
-
-            })
-
-        })
         let profile = false;
         if (window.location.href.includes('#access_token')) {
             profile = true;
