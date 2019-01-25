@@ -24,7 +24,8 @@ export class AppNavbar extends React.Component {
             nowPlaying: {
                 song: '',
                 image: ''
-            }
+            },
+            iconName: 'SpotiApp'
         }
         if (params.access_token) {
             spotifyWebApi.setAccessToken(params.access_token)

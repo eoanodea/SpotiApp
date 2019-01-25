@@ -478,37 +478,38 @@ a {
   width: 100%;
   bottom: 0;
   left: 0;
-  height: 100px;
-}
-.nowPlaying .container {
-  display: flex;
+  height: 130px;
 }
 .nowPlayingContainer {
-  position: absolute;
-  left: 0px;
-  bottom: 30px;
-  padding: 20px;
-  width: 160px;
-  height: 185px;
-  background-color: #353A3F;
-  border-radius: 0 7.5px 0 0;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
 }
 .nowPlayingName {
   color: #fff;
+  display: flex;
 }
 .nowPlayingName img {
-  margin-bottom: 10px;
+  margin: auto 0 auto 0;
+  height: 100px;
 }
-.nowPlayingName h3, .nowPlayingName p {
-  margin-left: 5px;
+.nowPlayingNameText {
+  margin: 15px 0 0 15px;
+  font-size: 16px;
 }
-
-#progress {
+.nowPlayingNameTextArtist {
+  color: #ffffff99;
+}
+.nowPlayingProgressWrapper {
   width: 80%;
   margin: 0 auto;
 }
-
-#bar {
+.nowPlayingProgressBackground {
+  background-color: #364E4F;
+  border-radius: 15px;
+  margin: 0 10px;
+}
+.nowPlayingProgressbar {
   width: 100%;
   margin: 50px 0;
   height: 30px;

@@ -39,9 +39,11 @@ export class GetNowPlaying extends React.Component {
         }
         return hashParams;
     }
+
     getNowPlaying () {
-        var refreshIcon = document.getElementById('refreshIcon');
-        if (refreshIcon.className == "material-icons d-none d-sm-block rotate") {
+        this.rotate;
+        var refreshIcon = document.getElementsByTagName('i');
+        if (refreshIcon.className === "material-icons d-none d-sm-block rotate") {
             refreshIcon.className = "material-icons d-none d-sm-block rotate2";
             console.log("rotate");
         } else {
@@ -82,6 +84,7 @@ export class GetNowPlaying extends React.Component {
 
         }
     }
+
     componentDidMount() {
         if (this.getNowPlaying.loggedIn = true) setInterval(() => {
             this.getNowPlaying()
@@ -92,19 +95,23 @@ export class GetNowPlaying extends React.Component {
     render() {
         return (
            <div className="nowPlaying">
-                <div className="container">
                     <div className="nowPlayingContainer">
                         <div className="nowPlayingName">
                             <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
-                            <p>{this.state.nowPlaying.song}</p>
-                            <p>{this.state.nowPlaying.artist}</p>
+                            <div className="nowPlayingNameText">
+                                <p className="nowPlayingNameTextSong">{this.state.nowPlaying.song}</p>
+                                <p className="nowPlayingNameTextArtist">{this.state.nowPlaying.artist}</p>
+                            </div>
                         </div>
+                        <div className="nowPlayingProgressWrapper">
+                        <div className="nowPlayingProgressBackground">
+                            <div className="nowPlayingProgressbar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
+                        </div>
+                        </div>
+                        <i id="rotate" className="material-icons d-none d-sm-block rotate" href="#" onClick={this.getNowPlaying}>refresh</i>
+
                     </div>
-                    <div id="progress">
-                        <div id="bar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
-                    </div>
-                        <i id="refreshIcon" className="material-icons d-none d-sm-block rotate" href="#" onClick={this.getNowPlaying}>refresh</i>
-                    </div>
+                    
                 </div>
         );
     }

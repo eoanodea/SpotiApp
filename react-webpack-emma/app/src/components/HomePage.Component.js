@@ -3,14 +3,7 @@ import Spotify from 'spotify-web-api-js';
 import { AppNavbar } from './AppNavbar.Component';
 import SpotifyIcon from '../images/Spotify.png';
 import { FormModal } from './FormModal.Component';
-import{
-    Button
-} from 'reactstrap'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
-
+import{ Button } from 'reactstrap'
 
 export class HomePage extends React.Component {
     

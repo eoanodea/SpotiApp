@@ -117,44 +117,50 @@ a {
     width: 100%;
     bottom: 0;
     left: 0;
-    height: 100px;
-    & .container {
-        display: flex;
-    }
+    height: 130px;
     &Container {
-        position: absolute;
-        left: 0px;
-        bottom: 30px;
-        padding: 20px;
-        width: 160px;
-        height: 185px;
-        background-color: #353A3F;
-        border-radius: 0 7.5px 0 0;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        // background-color: #353A3F;
+
     }
     &Name {
         color: #fff;
+        display: flex;
     }
     &Name img {
-        margin-bottom: 10px;
+        margin: auto 0 auto 0;
+        height: 100px;
     }
-    &Name h3,
-    &Name p {
-        margin-left: 5px;
+    &NameText {
+        margin: 15px 0 0 15px;
+        font-size: 16px;
+
     }
-}
-#progress {
-    width: 80%;
-    margin: 0 auto;
+    &NameTextArtist {
+        color: #ffffff99;
+    }
+    &ProgressWrapper {
+        width: 80%;
+        margin: 0 auto;
+
+    }
+    &ProgressBackground {
+        background-color: #364E4F;
+        border-radius: 15px;
+        margin: 0 10px;
+    }
+    &Progressbar {
+        width: 100%;
+        margin: 50px 0;
+        height: 30px;
+        background-color: green;
+        border-radius: 15px;
+    }
 
 }
-#bar {
-    width: 100%;
-    margin: 50px 0;
-    height: 30px;
-    background-color: green;
-    border-radius: 15px;
 
-}
 .icon {
     // margin-left: 750px;
     // margin-top: 50px;
