@@ -13,6 +13,8 @@ export class Profile extends React.Component {
             iconName: "My profile"
         };
     }
+
+
     render() {
         return (
             <div className="App">
@@ -24,6 +26,7 @@ export class Profile extends React.Component {
                     <div className="col-md-6 mx-auto">
                         <h1 className="text-center">TODO </h1>
                         <List />
+
                     </div>
                 </div>
 
