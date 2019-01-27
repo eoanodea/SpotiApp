@@ -11,7 +11,6 @@ export class Profile extends React.Component {
             term: "",
             items: [],
             iconName: "My profile",
-            dumbString: "Shut the fuck up Ryan"
         };
     }
 
