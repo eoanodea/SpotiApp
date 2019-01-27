@@ -483,6 +483,7 @@ a {
   width: 100%;
   bottom: 0;
   left: 0;
+<<<<<<< HEAD
   height: 0px;
   transition: 0.3s ease;
 }
@@ -528,6 +529,37 @@ a {
 .profileHeading {
   color: #fff;
 }
+=======
+  height: 130px; }
+  .nowPlayingContainer {
+    width: 80%;
+    margin: 0 auto;
+    display: flex; }
+  .nowPlayingName {
+    color: #fff;
+    display: flex; }
+  .nowPlayingName img {
+    margin: auto 0 auto 0;
+    height: 100px; }
+  .nowPlayingNameText {
+    margin: 15px 0 0 15px;
+    font-size: 16px; }
+  .nowPlayingNameTextArtist {
+    color: #ffffff99; }
+  .nowPlayingProgressWrapper {
+    width: 80%;
+    margin: 0 auto; }
+  .nowPlayingProgressBackground {
+    background-color: #364E4F;
+    border-radius: 15px;
+    margin: 0 10px; }
+  .nowPlayingProgressbar {
+    width: 100%;
+    margin: 50px 0;
+    height: 30px;
+    background-color: green;
+    border-radius: 15px; }
+>>>>>>> 66e3c2f7d410f0f0a792915587f853abd8b2ebb2
 
 @media (min-width: 768px) {
   .listSubmit.col-md-2 {
@@ -573,7 +605,11 @@ a {
 
 .fade-enter-active {
   opacity: 1;
+<<<<<<< HEAD
   transition: opacity 1000ms ease-in;
 }
+=======
+  transition: opacity 1000ms ease-in; }
+>>>>>>> 66e3c2f7d410f0f0a792915587f853abd8b2ebb2
 
 /*# sourceMappingURL=style.min.css.map */

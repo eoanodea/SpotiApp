@@ -78,7 +78,7 @@ class List extends Component {
             <div className="col-md-12">
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Add a song!</label>
+                        <label htmlFor="exampleInputEmail1">Add a Song Name</label>
                         <div className="row">
                             <div className="col-md-9">
                                 <input
@@ -91,15 +91,21 @@ class List extends Component {
                             </div>
                             <div className="col-md-2 listSubmit">
                                 <button
-                                    type="submit"
-                                    onClick={this.onSubmit.bind(this)}
-                                    className="btn btn-success btn-block submitButton ">
-                                    Submit
-                                </button>
+                                    className="btn btn-primary"
+                                    onClick={this.onUpdate.bind(this)}
+                                >
+                                    Update
+                </button>
                             </div>
                         </div>
                     </div>
-
+                    <button
+                        type="submit"
+                        onClick={this.onSubmit.bind(this)}
+                        className="btn btn-success btn-block"
+                    >
+                        Submit
+          </button>
                 </form>
                 <table className="table">
                     <tbody>
