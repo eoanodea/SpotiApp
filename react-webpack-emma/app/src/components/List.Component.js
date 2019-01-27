@@ -89,7 +89,7 @@ class List extends Component {
                                     onChange={this.onChange.bind(this)}
                                 />
                             </div>
-                            <div className="col-md-2 listSubmit">
+                            <div className="col-md-2 listUpdate">
                                 <button
                                     className="btn btn-primary"
                                     onClick={this.onUpdate.bind(this)}
@@ -102,7 +102,7 @@ class List extends Component {
                     <button
                         type="submit"
                         onClick={this.onSubmit.bind(this)}
-                        className="btn btn-success btn-block"
+                        className="btn btn-success btn-block listSubmit"
                     >
                         Submit
           </button>

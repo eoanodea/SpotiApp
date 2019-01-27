@@ -1,13 +1,28 @@
+// ================
+//  Imports
+// ================
+
 @import 'reset/import.scss';
 @import 'fonts/fonts.scss';
 @import url('https://fonts.googleapis.com/css?family=Sarabun');
 
+// ================
+//  General Styles
+// ================
 
 body {
     font-family: "Sarabun", sans-serif;
     background-color: #2f4f4f!important;
-   
 }
+a { 
+    text-decoration: none;
+    color: #fff;
+}
+
+// ================
+//  Header (AppNavBar.Component)
+// ================
+
 header div {
     display: flex;
     justify-content: space-between;
@@ -21,9 +36,10 @@ header div {
 .header {
     margin: 130px 0;
 }
-.material-icons {
-    color: white;
-    margin: auto 0;
+.divider {
+    border: 1px solid #fff;
+    height: 25px;
+    margin: 0 15px;
 }
 nav {
     margin: auto 0;
@@ -33,81 +49,44 @@ nav {
     margin: auto 0;
     }
 }
-//Homepage
-.fade-in {
-    animation: opac 2s;
-}
+
+// ================
+//  HomePage.Component
+// ================
+
 .homepage {
     background:darkslategray;
     &Content {
         text-align: center;
     }
-}
-.homepageContent {
-    & .container button {
+    &Content .container button {
         padding: .3rem 1.5rem;
         text-transform: uppercase;
     }
-        
-}
-#homePageIcon {
-    width: 150px;
-    height: 150px;  
-}
-#title {
-    color: white;
-    margin: 15px 0 25px 0;
-    text-align: center;
-    font-size: 5em;
-    @media(min-width: 700px) {
-        font-size: 7em;
+    &Title {
+        color: white;
+        margin: 15px 0 25px 0;
+        text-align: center;
+        font-size: 5em;
+        @media(min-width: 700px) {
+            font-size: 7em;
+        }
     }
 }
-#getStarted
-{
-    text-align: center;
-
+.icon {
+    height: 150px;
+    text-align: center
 }
 
+// ================
+//  FormModal.Component
+// ================
 
 .navLogin {
     cursor: pointer;
 }
 .formMessage {
     margin-top: 15px;
-}
-.rotate {
-    animation: rotateKeyFrames .4s;
-}
-.rotate2 {
-    animation: rotateKeyFrames2 .4s;
-}
-@keyframes rotateKeyFrames {
-    from {
-     transform: rotate(0deg);
-    }
-   
-    to {
-     transform: rotate(360deg);
-    }
-}
-   @keyframes rotateKeyFrames2 {
-    from {
-     transform: rotate(0deg);
-    }
-   
-    to {
-     transform: rotate(360deg);
-    }
-}
-.divider {
-    border: 1px solid #fff;
-    height: 25px;
-    margin: 0 15px;
-}
-a { 
-    text-decoration: none;
-    color: #fff;
 }
 .form-group input {
     margin: 0px 0;
@@ -116,7 +95,14 @@ a {
     margin: 20px 0;
 }
 
-// GETNOWPLAYING
+// ================
+//  GetNowPlaying.Component
+// ================
+
+.material-icons {
+    color: white;
+    margin: auto 0;
+}
 
 .nowPlaying {
     position: fixed;
@@ -130,8 +116,6 @@ a {
         width: 80%;
         margin: 0 auto;
         display: flex;
-        // background-color: #353A3F;
-
     }
     &Name {
         color: #fff;
@@ -169,13 +153,21 @@ a {
     }
 
 }
+
+// ================
+//  Profile.Component
+// ================
+
 .col-md-12,
 .profileHeading {
     color: #fff;
 }
+.listSubmit {
+    margin: 0 0 15px 0;
+}
 @media(min-width: 768px) {
     .list{
-        &Submit.col-md-2 {
+        &Update.col-md-2 {
             padding: 0;
         }
         &Edit {
@@ -183,10 +175,9 @@ a {
         }
     }
 }
-
-.icon {
-    height: 150px;
-    text-align: center
+.list{
+    color: #fff;
+    width: 25%;
 }
 .aggregate{
     color: #fff; 
@@ -195,12 +186,12 @@ a {
     margin-top: 50px;
 }
 
-.list{
-    color: #fff;
-    width: 25%;
-}
-.remove-btn{
-    margin-right: 0.5rem;
+// ================
+//  Animations
+// ================
+
+.fade-in {
+    animation: opac 2s;
 }
 .fade-enter{
     opacity: 0.01;
@@ -215,4 +206,28 @@ a {
 .fade-enter-active{
     opacity: 1;
     transition: opacity 1000ms ease-in;
+}
+.rotate {
+    animation: rotateKeyFrames .4s;
+}
+.rotate2 {
+    animation: rotateKeyFrames2 .4s;
+}
+@keyframes rotateKeyFrames {
+    from {
+     transform: rotate(0deg);
+    }
+   
+    to {
+     transform: rotate(360deg);
+    }
+}
+   @keyframes rotateKeyFrames2 {
+    from {
+     transform: rotate(0deg);
+    }
+   
+    to {
+     transform: rotate(360deg);
+    }
 }

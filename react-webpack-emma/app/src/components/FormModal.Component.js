@@ -13,11 +13,12 @@ import { Login } from './Login.Component';
 export class FormModal extends React.Component {
     constructor(props) {
         super(props);
-  
     }
-    componentWillMount = () => {
-      
-    }
+    
+    /*
+    // Toggle Modal
+    */
+
     state = {
         modal: false,
         name: '',
@@ -33,13 +34,11 @@ export class FormModal extends React.Component {
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
-    loggedIn = (props) => {
-       
-        
-    }
 
+    /*
+    // Display only a login link until clicked, modal appears
+    */
 
-    //This is FormModal.Component
     render() {
         return(
             <div>

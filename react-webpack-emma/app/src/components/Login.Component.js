@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
 import {
     Button,
     Form,
@@ -14,18 +12,12 @@ import {
     NavLink,
     Alert
 } from 'reactstrap';
-import Profile from './Profile.Component';
 import classnames from 'classnames';
-
-
 import {
   getFromStorage,
   getInStorage,
   setInStorage
 } from '../../utilities/storage';
-import { AppNavbar } from './AppNavbar.Component';
-
-import { FormModal } from './FormModal.Component';
 
 export class Login extends React.Component {
   constructor(props) {
@@ -51,12 +43,10 @@ export class Login extends React.Component {
     this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
     this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
 
-    // this.onSignIn = this.onSignIn.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
     this.logout = this.logout.bind(this);
 
     this.toggle = this.toggle.bind(this);
-    // this.isLoggedIn = this.isLoggedIn.bind(this);
 
     this.state = {
       activeTab: '1'
@@ -121,6 +111,11 @@ export class Login extends React.Component {
       signUpLastName: event.target.value
     });
   }
+
+    /*
+    // Gets signup info from the user and posts it to the database
+    */
+
   onSignUp() {
     //Grab State
     const {
@@ -172,6 +167,11 @@ export class Login extends React.Component {
         }
       });
   }
+
+  /*
+  // Gets signup info from the user and posts it to the database
+  */
+
   onSignIn = (e) => {
     //Grab State
     const {
@@ -216,7 +216,6 @@ export class Login extends React.Component {
           });
         }
       });
-
   }
   logout() {
     this.setState({
@@ -281,7 +280,6 @@ export class Login extends React.Component {
   }
 
   render() {
-
     const {
       isLoading,
       token,
@@ -300,129 +298,124 @@ export class Login extends React.Component {
       return(<div><p>Loading...</p></div>);
       
     }
-
     // Display after the user has successfully logged in
-
-    
     if(!isLoading && !token) {
       return(
-      <div>
-      
-        <Nav tabs>
-            <NavItem>
-                <NavLink
-                className={
-                    classnames({ 
-                    active: this.state.activeTab === '1'
-                    })
-                }
-                onClick = { () => {
-                    this.toggle('1');
-                }
-                }
-                >Sign In
-            </NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink
-                    className={
-                    classnames({ 
-                    active: this.state.activeTab === '2'
-                    })
-                    }
-                    onClick = { () => {
-                    this.toggle('2');
-                    }
-                    }
-                    >Sign Up
-                </NavLink>
-            </NavItem>
-        </Nav>
-        <TabContent activeTab={this.state.activeTab}>
-        <TabPane active="true" tabId="1">
-          <Form onSubmit={this.onSignIn}>
-              <FormGroup className="loginFormGroup">
-                  <Input 
-                    type="email" 
-                    placeholder="Email Address" 
-                    value={signInEmail}
-                    onChange={this.onTextboxChangeSignInEmail}
-                  />
-                  <Input 
-                    type="password" 
-                    placeholder="Password" 
-                    value={signInPassword}
-                    onChange={this.onTextboxChangeSignInPassword}
-                  />
-                  <Button
-                      color="dark"
-                      style={{ marginTop: '2rem' }}
-                      block
-                  >Sign In</Button>
-              </FormGroup>
-          </Form>
-          {
-            (signUpError) ? (
-              <Alert id="alert" color={alertMessage.toString()} style={{ marginTop: '10px' }}>
-              {signUpError}
-            </Alert>
+        <div>
+          <Nav tabs>
+              <NavItem>
+                  <NavLink
+                  className={
+                      classnames({ 
+                      active: this.state.activeTab === '1'
+                      })
+                  }
+                  onClick = { () => {
+                      this.toggle('1');
+                  }
+                  }
+                  >Sign In
+              </NavLink>
+              </NavItem>
+              <NavItem>
+                  <NavLink
+                      className={
+                      classnames({ 
+                      active: this.state.activeTab === '2'
+                      })
+                      }
+                      onClick = { () => {
+                      this.toggle('2');
+                      }
+                      }
+                      >Sign Up
+                  </NavLink>
+              </NavItem>
+          </Nav>
+          <TabContent activeTab={this.state.activeTab}>
+          <TabPane active="true" tabId="1">
+            <Form onSubmit={this.onSignIn}>
+                <FormGroup className="loginFormGroup">
+                    <Input 
+                      type="email" 
+                      placeholder="Email Address" 
+                      value={signInEmail}
+                      onChange={this.onTextboxChangeSignInEmail}
+                    />
+                    <Input 
+                      type="password" 
+                      placeholder="Password" 
+                      value={signInPassword}
+                      onChange={this.onTextboxChangeSignInPassword}
+                    />
+                    <Button
+                        color="dark"
+                        style={{ marginTop: '2rem' }}
+                        block
+                    >Sign In</Button>
+                </FormGroup>
+            </Form>
+            {
+              (signUpError) ? (
+                <Alert id="alert" color={alertMessage.toString()} style={{ marginTop: '10px' }}>
+                {signUpError}
+              </Alert>
+              ) : (null)
+            }
+            {
+            (signInError) ? (
+              <Alert id="alert" style={{ marginTop: '10px' }}>
+                {signInError}
+              </Alert>
             ) : (null)
-          }
-          {
-          (signInError) ? (
-            <Alert id="alert" style={{ marginTop: '10px' }}>
-              {signInError}
-            </Alert>
-          ) : (null)
-          }
-        </TabPane>
-        <TabPane tabId="2">
-          <Form onSubmit={this.onSignUp}>
-              <FormGroup className="loginFormGroup">
-                  <Input 
-                    type="text" 
-                    placeholder="First Name" 
-                    value={signUpFirstName}
-                    onChange={this.onTextboxChangeSignUpFirstName}
-                  />
-                  <Input 
-                    type="text" 
-                    placeholder="Last Name" 
-                    value={signUpLastName}
-                    onChange={this.onTextboxChangeSignUpLastName}
-                  />
-                  <Input 
-                    type="email" 
-                    placeholder="Email Address" 
-                    value={signUpEmail}
-                    onChange={this.onTextboxChangeSignUpEmail}
-                  />
-                  <Input 
-                    type="password" 
-                    placeholder="Password" 
-                    value={signUpPassword}
-                    onChange={this.onTextboxChangeSignUpPassword}
-                  />
-                  <Button
-                      color="dark"
-                      style={{ marginTop: '2rem' }}
-                      block
-                  >Sign Up</Button>
-              </FormGroup>
-          </Form>
-          {
-            (signUpError) ? (
-              <Alert id="alert" color={alertMessage.toString()} style={{ marginTop: '10px' }}>
-              {signUpError}
-            </Alert>
-            ) : (null)
-          }
+            }
           </TabPane>
-        </TabContent>
-      </div>
+          <TabPane tabId="2">
+            <Form onSubmit={this.onSignUp}>
+                <FormGroup className="loginFormGroup">
+                    <Input 
+                      type="text" 
+                      placeholder="First Name" 
+                      value={signUpFirstName}
+                      onChange={this.onTextboxChangeSignUpFirstName}
+                    />
+                    <Input 
+                      type="text" 
+                      placeholder="Last Name" 
+                      value={signUpLastName}
+                      onChange={this.onTextboxChangeSignUpLastName}
+                    />
+                    <Input 
+                      type="email" 
+                      placeholder="Email Address" 
+                      value={signUpEmail}
+                      onChange={this.onTextboxChangeSignUpEmail}
+                    />
+                    <Input 
+                      type="password" 
+                      placeholder="Password" 
+                      value={signUpPassword}
+                      onChange={this.onTextboxChangeSignUpPassword}
+                    />
+                    <Button
+                        color="dark"
+                        style={{ marginTop: '2rem' }}
+                        block
+                    >Sign Up</Button>
+                </FormGroup>
+            </Form>
+            {
+              (signUpError) ? (
+                <Alert id="alert" color={alertMessage.toString()} style={{ marginTop: '10px' }}>
+                {signUpError}
+              </Alert>
+              ) : (null)
+            }
+            </TabPane>
+          </TabContent>
+        </div>
       );
     } else {
-    
       return (
         <div>
           <h2>Login to Spotify</h2>
@@ -442,11 +435,10 @@ export class Login extends React.Component {
                     color: '#fff' }}
             block
           >Logout</Button>
-
         </div>
       );
     }
-}
+  }
 }  
 
 

@@ -20,15 +20,22 @@ export class AppNavbar extends React.Component {
 
         this.profile = this.profile.bind(this);
     }
+    /*
+    // Toggle & state for responsive burger menu
+    */
     state = {
         isOpen: false
     }
-
     toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         })
     }
+
+    /*
+    // If the user has an access token, display the profile page.
+    // Else display the FormModal to allow the user to log in
+    */
 
     profile() {
         let profile = false;
@@ -49,10 +56,9 @@ export class AppNavbar extends React.Component {
     }
 
     render() {
-        console.log(this.props.iconName);
+
         return (
             <div>
-
                 <Navbar color="dark" dark expand="sm" className="mb-5">
                     <Container>
                         <NavbarBrand href="/" >

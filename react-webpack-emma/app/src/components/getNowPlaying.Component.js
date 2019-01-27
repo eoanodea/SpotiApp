@@ -8,6 +8,9 @@ const spotifyWebApi = new Spotify();
 export class GetNowPlaying extends React.Component {
     constructor(props) {
         super();
+        /*
+        // Get access token after oauth
+        */
         const params = this.getHashParams();
         const token = params.access_token;
         if (token) {
@@ -20,23 +23,13 @@ export class GetNowPlaying extends React.Component {
                 image: '',
 
             },
-            lastPlaying: [
-                {
-                    song: '',
-                    artist: '',
-                    album: '',
-                    image: ''
-                }
-            ],
             iconName: "SpotiApp",
             spotifyToken: token
         }
         if (params.access_token) {
             spotifyWebApi.setAccessToken(params.access_token)
         }
-        
         this.getNowPlaying = this.getNowPlaying.bind(this);
-
     }
 
     getHashParams() {
@@ -48,7 +41,11 @@ export class GetNowPlaying extends React.Component {
         }
         return hashParams;
     }
-
+    /*
+    // If the user has an access token, display playbar function,
+    // and fetch information from Spotify into the state
+    // Else set the song info to default and hide the playbar
+    */
     getNowPlaying = () => {
         let nowPlaying = document.getElementById('nowPlaying');
         if(this.state.loggedIn === true) {
@@ -81,6 +78,12 @@ export class GetNowPlaying extends React.Component {
             })
         }
     }
+
+    /*
+    // refreshIcon rotates 360deg every click. This is done by switching the class 
+    // from rotate to rotate2. Everytime it rotates, it also calls the getNowPlaying // function
+    */
+
     refreshIcon = () => {
         let refreshIcon = document.getElementById('rotate');
             if(refreshIcon.className == 'material-icons d-none d-sm-block rotate') {
@@ -92,6 +95,10 @@ export class GetNowPlaying extends React.Component {
 
         this.getNowPlaying();
     }
+
+    /*
+    // Run the getNowPlaying function every 1000ms
+    */
     
     componentDidMount() {
          setInterval(() => {
@@ -103,23 +110,21 @@ export class GetNowPlaying extends React.Component {
     render() {
         return (
            <div id="nowPlaying" className="nowPlaying">
-                    <div className="nowPlayingContainer">
-                        <div className="nowPlayingName">
-                            <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
-                            <div className="nowPlayingNameText">
-                                <p className="nowPlayingNameTextSong">{this.state.nowPlaying.song}</p>
-                                <p className="nowPlayingNameTextArtist">{this.state.nowPlaying.artist}</p>
-                            </div>
+                <div className="nowPlayingContainer">
+                    <div className="nowPlayingName">
+                        <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
+                        <div className="nowPlayingNameText">
+                            <p className="nowPlayingNameTextSong">{this.state.nowPlaying.song}</p>
+                            <p className="nowPlayingNameTextArtist">{this.state.nowPlaying.artist}</p>
                         </div>
-                        <div className="nowPlayingProgressWrapper">
-                        <div className="nowPlayingProgressBackground">
-                            <div className="nowPlayingProgressbar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
-                        </div>
-                        </div>
-                        <i id="rotate" className="material-icons d-none d-sm-block rotate" href="#" onClick={this.refreshIcon}>refresh</i>
-
                     </div>
-                    
+                    <div className="nowPlayingProgressWrapper">
+                    <div className="nowPlayingProgressBackground">
+                        <div className="nowPlayingProgressbar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
+                    </div>
+                    </div>
+                    <i id="rotate" className="material-icons d-none d-sm-block rotate" href="#" onClick={this.refreshIcon}>refresh</i>
+                </div>
                 </div>
         );
     }

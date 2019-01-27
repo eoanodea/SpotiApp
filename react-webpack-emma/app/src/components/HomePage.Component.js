@@ -10,6 +10,11 @@ export class HomePage extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    /*
+    // If user does not have an access token display login
+    */
+
     isLoggedIn() {
         if(!window.location.href.includes('#access_token')) {
             return(
@@ -25,7 +30,7 @@ export class HomePage extends React.Component {
                 <div className="container">
                 <img className="icon" src={SpotifyIcon}/>
                 
-                <h1 id="title" className="fade-in">SpotiApp</h1>
+                <h1 className="fade-in homepageTitle">SpotiApp</h1>
                 {this.isLoggedIn()}
                 </div>
                 </div>
