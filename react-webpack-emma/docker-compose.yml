@@ -1,0 +1,25 @@
+version: '2'
+services:
+  mongodb:
+    image: "mongo"
+    ports:
+     - "27017:27017"
+  backend:
+    build: ./node-backend/
+    ports:
+      - "6200:6200"
+    volumes:
+      - ./node-backend:/usr/src/app
+  spotify:
+    build: ./spotify-backend/
+    ports:
+      - "6200:6200"
+    volumes:
+      - ./spotify-backend:/usr/src/app
+  frontend:
+    build: ./react-frontend/
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./react-frontend:/usr/src/app
+    

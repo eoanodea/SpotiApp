@@ -6,10 +6,10 @@
   "scripts": {
     "global-install": "npm install & app/ npm install",
     "start": "node server/server.js",
-    "server": "nodemon node-backend/server/server.js",
-    "client": "npm start --prefix react-frontend/",
-    "auth-server": "node spotify-backend/auth-server/authorization_code/app.js",
-    "dev": "concurrently \"npm run server\" \"npm run auth-server\" \"npm run client\""
+    "server": "nodemon server/server.js",
+    "client": "npm start --prefix app/",
+    "auth-server": "node auth-server/authorization_code/app.js",
+    "dev": "concurrently \"npm run server\" \"npm run auth-server\""
   },
   "repository": {
     "type": "git",
