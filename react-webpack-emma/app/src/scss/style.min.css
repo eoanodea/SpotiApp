@@ -416,70 +416,35 @@ a {
   width: 100%;
   bottom: 0;
   left: 0;
-<<<<<<< HEAD
-  height: 130px;
-}
-.nowPlayingContainer {
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-}
-.nowPlayingName {
-  color: #fff;
-  display: flex;
-}
-.nowPlayingName img {
-  margin: auto 0 auto 0;
-  height: 100px;
-}
-.nowPlayingNameText {
-  margin: 15px 0 0 15px;
-  font-size: 16px;
-}
-.nowPlayingNameTextArtist {
-  color: #ffffff99;
-}
-.nowPlayingProgressWrapper {
-  width: 80%;
-  margin: 0 auto;
-}
-.nowPlayingProgressBackground {
-  background-color: #364E4F;
-  border-radius: 15px;
-  margin: 0 10px;
-}
-.nowPlayingProgressbar {
-=======
-  height: 100px; }
-  .nowPlaying .container {
-    display: flex; }
+  height: 130px; }
   .nowPlayingContainer {
-    position: absolute;
-    left: 0px;
-    bottom: 30px;
-    padding: 20px;
-    width: 160px;
-    height: 185px;
-    background-color: #353A3F;
-    border-radius: 0 7.5px 0 0; }
+    width: 80%;
+    margin: 0 auto;
+    display: flex; }
   .nowPlayingName {
-    color: #fff; }
+    color: #fff;
+    display: flex; }
   .nowPlayingName img {
-    margin-bottom: 10px; }
-  .nowPlayingName h3, .nowPlayingName p {
-    margin-left: 5px; }
-
-#progress {
-  width: 80%;
-  margin: 0 auto; }
-
-#bar {
->>>>>>> 66b07b4704244fc24a86f3f78ae9b1d69bf27b9c
-  width: 100%;
-  margin: 50px 0;
-  height: 30px;
-  background-color: green;
-  border-radius: 15px; }
+    margin: auto 0 auto 0;
+    height: 100px; }
+  .nowPlayingNameText {
+    margin: 15px 0 0 15px;
+    font-size: 16px; }
+  .nowPlayingNameTextArtist {
+    color: #ffffff99; }
+  .nowPlayingProgressWrapper {
+    width: 80%;
+    margin: 0 auto; }
+  .nowPlayingProgressBackground {
+    background-color: #364E4F;
+    border-radius: 15px;
+    margin: 0 10px; }
+  .nowPlayingProgressbar {
+    width: 100%;
+    margin: 50px 0;
+    height: 30px;
+    background-color: green;
+    border-radius: 15px; }
 
 .icon {
   height: 150px;
@@ -511,12 +476,5 @@ a {
 .fade-enter-active {
   opacity: 1;
   transition: opacity 1000ms ease-in; }
-
-.submitButton {
-  width: 150% !important; }
-
-.form-group label {
-  margin-top: 30px;
-  font-size: 30px; }
 
 /*# sourceMappingURL=style.min.css.map */
