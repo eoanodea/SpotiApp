@@ -64,13 +64,7 @@ export class AppNavbar extends React.Component {
                         <NavbarBrand href="/" >
                             {this.props.iconName}
                         </NavbarBrand>
-                        <Nav className="d-block d-sm-none">
-                            <NavItem>
-                                <NavLink>
-                                    <i id="refreshIcon" className="material-icons" href="#" onClick={this.props.myFunction}>refresh</i>
-                                </NavLink>
-                            </NavItem>
-                        </Nav>
+
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
