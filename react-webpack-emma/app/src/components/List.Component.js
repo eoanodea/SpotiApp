@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+//import all functions 
 import { getList, addToList, deleteItem, updateItem } from './ListFunctions.Component';
 
 class List extends Component {
@@ -7,7 +9,6 @@ class List extends Component {
         this.state = {
             id: "",
             term: "",
-            editDisabled: false,
             items: []
         };
 
@@ -15,13 +16,14 @@ class List extends Component {
         this.onChange = this.onChange.bind(this);
     }
 
+    //get all songs
     componentDidMount() {
         this.getAll();
     }
 
     onChange = event => {
-        this.setState({ term: event.target.value, editDisabled: "disabled" });
-        console.log(this.state.editDisabled);
+        this.setState({ term: event.target.value });
+
     };
 
     getAll = () => {
