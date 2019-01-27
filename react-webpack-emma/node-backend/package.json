@@ -8,7 +8,7 @@
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
     "client": "npm start --prefix app/",
-    "auth-server": "node auth-server/authorization_code/app.js",
+    "auth-server": "node server/server.js",
     "dev": "concurrently \"npm run server\" \"npm run auth-server\" "
   },
   "repository": {

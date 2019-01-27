@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "global-install": "npm install & app/ npm install",
-    "start": "node server/server.js",
+    "start": "node auth-server/authorization_code/app.js",
     "server": "nodemon server/server.js",
     "client": "npm start --prefix app/",
     "auth-server": "node auth-server/authorization_code/app.js",
