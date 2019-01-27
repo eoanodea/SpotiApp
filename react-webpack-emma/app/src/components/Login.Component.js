@@ -43,7 +43,6 @@ export class Login extends React.Component {
       signUpEmail: '',
       signUpPassword: '',
       loggedIn: false,
-      randomString: 'Ryan is a cunt'
     };
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
@@ -209,7 +208,7 @@ export class Login extends React.Component {
             token: json.token
           });
           console.log("token received");
-          window.location.replace("http://localhost:8080/profile/");
+          // window.location.replace("http://localhost:8080/profile/");
         } else {
           this.setState({
             signInError: json.message,
@@ -223,6 +222,7 @@ export class Login extends React.Component {
     this.setState({
       isLoading: true
     });
+    console.log("logout innitated");
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
       const { token } = obj;
@@ -241,10 +241,12 @@ export class Login extends React.Component {
             });
           }
         });
+        console.log("logout complete")
     } else {
       this.setState({
         isLoading: false
       });
+      console.log("logout broke")
     }
 
   }
@@ -253,7 +255,6 @@ export class Login extends React.Component {
     if(token) {
       this.setState({
         loggedIn: true
-
       })
       return(
         <NavLink className="navLogin" onClick={this.logout}>Logout</NavLink>
@@ -299,8 +300,12 @@ export class Login extends React.Component {
       return(<div><p>Loading...</p></div>);
       
     }
-    if (!isLoading || token) {
-    return (
+
+    // Display after the user has successfully logged in
+
+    
+    if(!isLoading && !token) {
+      return(
       <div>
       
         <Nav tabs>
@@ -336,7 +341,7 @@ export class Login extends React.Component {
         <TabContent activeTab={this.state.activeTab}>
         <TabPane active="true" tabId="1">
           <Form onSubmit={this.onSignIn}>
-              <FormGroup>
+              <FormGroup className="loginFormGroup">
                   <Input 
                     type="email" 
                     placeholder="Email Address" 
@@ -373,7 +378,7 @@ export class Login extends React.Component {
         </TabPane>
         <TabPane tabId="2">
           <Form onSubmit={this.onSignUp}>
-              <FormGroup>
+              <FormGroup className="loginFormGroup">
                   <Input 
                     type="text" 
                     placeholder="First Name" 
@@ -416,16 +421,32 @@ export class Login extends React.Component {
         </TabContent>
       </div>
       );
+    } else {
+    
+      return (
+        <div>
+          <h2>Login to Spotify</h2>
+          <Button 
+            color="dark"
+            href="http://localhost:8888/login/"
+            style={{ marginTop: '2rem',
+                    marginBottom: '2rem' }}
+            block
+          >Spotify</Button>
+          <h2>Logout</h2>
+          <Button 
+            color="dark"
+            onClick={this.logout}
+            style={{ marginTop: '2rem',
+                    marginBottom: '2rem',
+                    color: '#fff' }}
+            block
+          >Logout</Button>
+
+        </div>
+      );
     }
-      
-    return (
-      <div>
-        <p>Please wait...</p>
-        {/* <button onClick={this.logout}>Logout</button> */}
-      </div>
-    );
-  }
 }
-  
+}  
 
 

@@ -80,7 +80,7 @@ class List extends Component {
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Add a song!</label>
                         <div className="row">
-                            <div className="col-md-9 ">
+                            <div className="col-md-9">
                                 <input
                                     type="text"
                                     className="form-control"
@@ -89,7 +89,7 @@ class List extends Component {
                                     onChange={this.onChange.bind(this)}
                                 />
                             </div>
-                            <div className="col-md-2 ">
+                            <div className="col-md-2 listSubmit">
                                 <button
                                     type="submit"
                                     onClick={this.onSubmit.bind(this)}
@@ -104,12 +104,12 @@ class List extends Component {
                 <table className="table">
                     <tbody>
                         {this.state.items.map((item, index) => (
-                            <tr key={index}>
+                            <tr key={index} className="fade-in">
                                 <td className="text-left">{item[0]}</td>
                                 <td className="text-right">
                                     <button
                                         href=""
-                                        className="btn btn-info mr-1"
+                                        className="btn btn-info mr-1 listEdit"
                                         disabled={this.state.editDisabled}
                                         onClick={this.onEdit.bind(this, item[0], item[1])}
                                     >
@@ -117,7 +117,7 @@ class List extends Component {
                   </button>
                                     <button
                                         href=""
-                                        className="btn btn-danger"
+                                        className="btn btn-danger listDelete"
                                         onClick={this.onDelete.bind(this, item[1])}
                                     >
                                         Delete

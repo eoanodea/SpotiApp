@@ -20,14 +20,23 @@ export class GetNowPlaying extends React.Component {
                 image: '',
 
             },
-            iconName: "SpotiApp"
+            lastPlaying: [
+                {
+                    song: '',
+                    artist: '',
+                    album: '',
+                    image: ''
+                }
+            ],
+            iconName: "SpotiApp",
+            spotifyToken: token
         }
-
         if (params.access_token) {
             spotifyWebApi.setAccessToken(params.access_token)
         }
-
+        
         this.getNowPlaying = this.getNowPlaying.bind(this);
+
     }
 
     getHashParams() {
@@ -40,38 +49,27 @@ export class GetNowPlaying extends React.Component {
         return hashParams;
     }
 
-    getNowPlaying () {
-        this.rotate;
-        var refreshIcon = document.getElementsByTagName('i');
-        if (refreshIcon.className === "material-icons d-none d-sm-block rotate") {
-            refreshIcon.className = "material-icons d-none d-sm-block rotate2";
-            console.log("rotate");
-        } else {
-            refreshIcon.className = "material-icons d-none d-sm-block rotate";
-            console.log("rotate2");
-        }
-        let loggedIn = false;
-        if (window.location.href.includes('#access_token')) {
-            loggedIn = true;
+    getNowPlaying = () => {
+        let nowPlaying = document.getElementById('nowPlaying');
+        if(this.state.loggedIn === true) {
+            nowPlaying.style.height = '130px';
             spotifyWebApi.getMyCurrentPlaybackState()
-                .then((response) => {
-                    this.setState({
-                        nowPlaying: {
-                            song: response.item.name,
-                            artist: response.item.artists[0].name,
-                            album: response.item.album.name,
-                            image: response.item.album.images[0].url,
-                            duration: response.item.duration_ms,
-                            position: response.progress_ms,
-                            
-                        }
-                    });
-                })
-                console.log("fetch");
-        }
-         else {
-            loggedIn = false;
-            console.log(loggedIn)
+            .then((response) => {
+                this.setState({
+                    nowPlaying: {
+                        song: response.item.name,
+                        artist: response.item.artists[0].name,
+                        album: response.item.album.name,
+                        image: response.item.album.images[0].url,
+                        duration: response.item.duration_ms,
+                        position: response.progress_ms,  
+                    }
+                });
+            })
+        
+        } else {
+            console.log("false state");
+            nowPlaying.style.height = '0px';
             this.setState({
                 nowPlaying: {
                     song: 'Song',
@@ -81,20 +79,30 @@ export class GetNowPlaying extends React.Component {
                     
                 }
             })
-
         }
     }
+    refreshIcon = () => {
+        let refreshIcon = document.getElementById('rotate');
+            if(refreshIcon.className == 'material-icons d-none d-sm-block rotate') {
+                console.log('ye')
+                refreshIcon.className = 'material-icons d-none d-sm-block rotate2';
+            } else {
+                refreshIcon.className = 'material-icons d-none d-sm-block rotate';
+            }
 
+        this.getNowPlaying();
+    }
+    
     componentDidMount() {
-        if (this.getNowPlaying.loggedIn = true) setInterval(() => {
+         setInterval(() => {
             this.getNowPlaying()
-        }, 10000)
+        }, 1000)
     }
 
 
     render() {
         return (
-           <div className="nowPlaying">
+           <div id="nowPlaying" className="nowPlaying">
                     <div className="nowPlayingContainer">
                         <div className="nowPlayingName">
                             <img src={this.state.nowPlaying.image} style={{ width: 100 }} />
@@ -108,7 +116,7 @@ export class GetNowPlaying extends React.Component {
                             <div className="nowPlayingProgressbar" style={{ width: ((this.state.nowPlaying.position / this.state.nowPlaying.duration) * 100 + '%') }}></div>
                         </div>
                         </div>
-                        <i id="rotate" className="material-icons d-none d-sm-block rotate" href="#" onClick={this.getNowPlaying}>refresh</i>
+                        <i id="rotate" className="material-icons d-none d-sm-block rotate" href="#" onClick={this.refreshIcon}>refresh</i>
 
                     </div>
                     
