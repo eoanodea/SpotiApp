@@ -6,7 +6,7 @@ var db = mongojs(
     ["tasks"]
 );
 
-// Get All Tasks
+// Get All Songs
 router.get("/tasks", function (req, res, next) {
     db.tasks.find({}, { _id: 1, title: 1 }, function (err, tasks) {
         if (err) {
@@ -24,7 +24,7 @@ router.get("/tasks", function (req, res, next) {
     });
 });
 
-// Get Single Task
+// Get Single Song
 router.get("/task/:id", function (req, res, next) {
     db.tasks.findOne({ _id: mongojs.ObjectId(req.params.id) }, function (
         err,
@@ -37,7 +37,7 @@ router.get("/task/:id", function (req, res, next) {
     });
 });
 
-//Save Task
+//Save Song
 router.post("/task", function (req, res, next) {
     var task = req.body;
     if (!task.title || !(task.isDone + "")) {
@@ -55,7 +55,7 @@ router.post("/task", function (req, res, next) {
     }
 });
 
-// Delete Task
+// Delete a song
 router.delete("/task/:id", function (req, res, next) {
     db.tasks.remove({ _id: mongojs.ObjectId(req.params.id) }, function (
         err,
@@ -68,7 +68,7 @@ router.delete("/task/:id", function (req, res, next) {
     });
 });
 
-// Update Task
+// Update a Song
 router.put("/task/:id", function (req, res, next) {
     var task = req.body;
     var updTask = {};
