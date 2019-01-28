@@ -1,7 +1,11 @@
 
-FROM node:6.11.1
-RUN mkdir -p /usr/src/app
+FROM node:11.8
 WORKDIR /usr/src/app
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
