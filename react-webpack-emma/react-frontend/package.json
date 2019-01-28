@@ -14,7 +14,14 @@
     },
     "author": "Eoan, Maxim, Ryan",
     "license": "MIT",
+    "dependencies": {
+        "webpack-dev-server": "^3.1.14",
+        "sass": "^1.16.1",
+        "webpack": "^4.28.1"
+    },
     "devDependecies": {
-        "webpack-dev-server": "^3.1.14"
+        "webpack-dev-server": "^3.1.14",
+        "webpack": "^4.27.1",
+        "webpack-cli": "^3.1.2"
     }
 }
