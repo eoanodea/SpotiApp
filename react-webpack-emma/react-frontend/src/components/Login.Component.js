@@ -291,7 +291,7 @@ export class Login extends React.Component {
       signUpEmail,
       signUpPassword,
       signUpError,
-      loggedIn
+      alertMessage,
     } = this.state;
 
     if (isLoading) {
