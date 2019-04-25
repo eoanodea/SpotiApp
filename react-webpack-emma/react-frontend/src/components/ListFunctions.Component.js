@@ -64,3 +64,53 @@ export const updateItem = (term, id) => {
             console.log(response);
         });
 };
+
+
+this.state = {
+    id: "",
+    term: "",
+    items: []
+};
+
+onUpdate = e => {
+    e.preventDefault();
+    updateItem(this.state.term, this.state.id).then(() => {
+        this.getAll();
+    });
+};
+
+onEdit = (item, itemid, e) => {
+    e.preventDefault();
+    this.setState({
+        id: itemid,
+        term: item
+    });
+};
+
+<input
+    type="text"
+    className="form-control"
+    id="exampleInputEmail1"
+    value={this.state.term || ""}
+    onChange={this.onChange.bind(this)}
+/>
+<button
+    className="btn btn-primary"
+    onClick={this.onUpdate.bind(this)}
+>
+    Update
+</button>
+
+<button
+    href=""
+    className="btn btn-info mr-1 listEdit"
+    disabled={this.state.editDisabled}
+    onClick={this.onEdit.bind(this, item[0], item[1])}>
+    Edit
+</button>
+<button
+    href=""
+    className="btn btn-danger listDelete"
+    onClick={this.onDelete.bind(this, item[1])}>
+    Delete
+</button>

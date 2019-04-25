@@ -184,7 +184,7 @@ export class Login extends React.Component {
     this.setState({
       isLoading: true
     });
-    //Post request to backend
+  //Post request to backend
     fetch('http://localhost:5000/api/account/signin', {
       method: 'POST',
       headers: {
